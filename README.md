@@ -8,3 +8,7 @@ Examples
 Angular Movie (par Thierry Lau) : https://github.com/lauterry/angularmovie
 TodoMVC : http://todomvc.com/architecture-examples/angularjs/
 
+Resources
+=========
+Api Rest IMDB : http://mymovieapi.com/
+
