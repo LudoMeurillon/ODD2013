@@ -1,0 +1,55 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">Select genres</div>
+				<div class="panel-body">
+					<div class="btn-group btn-group-vertical">
+						<button class="btn" data-toggle="buttons-checkbox">Horror</button>
+						<button class="btn" data-toggle="buttons-checkbox">Fantastic</button>
+						<button class="btn" data-toggle="buttons-checkbox">Comedy</button>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+		<div class="col-md-10">
+			<!--Body content-->
+
+			<ul class="movies">
+				<li ng-repeat="movie in movies" class="movie-listing">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<a href="#/movies/{{movie.imdb_id}}" class="thumb img-thumbnail">
+								<img ng-src="data/covers/{{movie.imdb_id}}.jpg">
+							</a>
+
+
+							<h3>
+								<a href="#/movies/{{movie.imdb_id}}">{{movie.title}}</a>
+							</h3>
+
+
+							<p>
+								<span class="glyphicon glyphicon-star"></span>{{movie.rating}}
+							</p>
+
+							<p>By : {{movie.directors | separatedByCommas }}</p>
+							<p>With : {{movie.actors | limitSize | separatedByCommas }}</p>
+
+
+							<p>{{movie.plot_simple}}</p>
+
+						</div>
+					</div>
+
+
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</div>
