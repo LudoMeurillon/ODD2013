@@ -1,6 +1,6 @@
 <section>
 	<header>
-				Filter group
+			Filter group
 			<div class="btn-group btn-group-horizontal">
 				<button class="btn" data-toggle="buttons-checkbox">Horror</button>
 				<button class="btn" data-toggle="buttons-checkbox">Fantastic</button>
@@ -10,7 +10,7 @@
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-show="{{movie.poster.cover}}" ng-repeat="movie in movies">
+			<li ng-show="{{movie.poster.cover != undefined}}" ng-repeat="movie in movies">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="{{movie.poster.cover}}"/>
 				</a>
@@ -18,15 +18,16 @@
 					<i class="glyphicon glyphicon-film"/>
 				</section>
 				<section class="movie-abstract">
-					{{movie.title}}
-                    <!--
-                    <p>
-                    	<span class="glyphicon glyphicon-star"></span>{{movie.rating}}
-					</p>
-					By : {{movie.directors | separatedByCommas }}
-					With : {{movie.actors | limitSize | separatedByCommas }}
+					<h3>{{movie.title}}</h3>
+                 	<vote value="movie.rating"/>{{movie.rating}}
+                   	<!--<span class="glyphicon glyphicon-star"></span>-->
+					<span>
+						By : {{movie.directors | separatedByCommas }}
+					</span>
+					<span>
+						With : {{movie.actors | limitSize | separatedByCommas }}
+					<span>
 					{{movie.plot_simple}}
-					-->
 				</section>
 			</li>
 		</ul>

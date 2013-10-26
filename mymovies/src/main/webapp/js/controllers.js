@@ -4,11 +4,20 @@
 
 var mymoviesControllers = angular.module('mymoviesControllers', []);
 
-mymoviesControllers.controller('MovieListCtrl', [ '$scope', 'Movie',
+mymoviesControllers
+	.controller('MovieListCtrl', [ '$scope', 'Movie',
 		function($scope, Movie) {
 			$scope.movies = Movie.query();
-//			$scope.orderProp = 'age';
-		} ]);
+		}])
+	.directive('vote', function(){
+			return {
+		    	restrict: 'E',
+		    	scope:{
+		    		vote:"=value"
+		    	},
+		    	templateUrl: 'templates/vote.html'
+		    };
+		});
 
 
 
@@ -24,3 +33,4 @@ mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams',
 //				$scope.mainImageUrl = imageUrl;
 //			}
 		} ]);
+
