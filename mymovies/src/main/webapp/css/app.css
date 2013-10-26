@@ -92,3 +92,23 @@ vote ul li {
   margin-bottom: 5px;
   font-family: Share Tech;
 }
+
+
+.movie-detail-icon ~ .movie-genres{
+  display: none;
+  padding:0px;
+  z-index: 1000000;
+  height:50px;
+  position:absolute;
+  top:10px;
+  left:10px;
+  list-style-type: none;
+}
+
+.movies > ul > li:hover .movie-genres{
+  display: block;
+}
+
+.movie-detail-icon:hover ~ .movie-genres{
+  display:none;
+}

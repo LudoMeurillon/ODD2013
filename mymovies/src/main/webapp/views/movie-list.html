@@ -19,7 +19,8 @@
 				</section>
 				<section class="movie-abstract">
 					<h3>{{movie.title}}</h3>
-                 	<vote value="movie.rating"/>{{movie.rating}}
+                 	<vote value="movie.rating" max="10" stars="10"/>
+                 	{{movie.rating}}
                    	<!--<span class="glyphicon glyphicon-star"></span>-->
 					<span>
 						By : {{movie.directors | separatedByCommas }}
@@ -29,6 +30,11 @@
 					<span>
 					{{movie.plot_simple}}
 				</section>
+				<ul class="movie-genres">
+					<li ng-repeat="genre in movie.genres | limitTo:3">
+						<span class="label label-info">{{genre}}</span>
+					</li>
+				</ul>
 			</li>
 		</ul>
 	</section>

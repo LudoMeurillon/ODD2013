@@ -13,7 +13,19 @@ mymoviesControllers
 			return {
 		    	restrict: 'E',
 		    	scope:{
-		    		vote:"=value"
+		    		vote:"=value",
+		    		max:"=max",
+		    		stars:"=stars",
+		    		range:"&"
+		    	},
+		    	link : function(scope){
+		    		scope.range = function(max){
+		    			var array = [];
+		    			for (var i = 1; i <= max; i++) {
+		    				array.push(i);
+		    			}
+		    			return array;
+		    		}
 		    	},
 		    	templateUrl: 'templates/vote.html'
 		    };
