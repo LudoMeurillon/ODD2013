@@ -1,0 +1,19 @@
+<header class="header">
+      <span class="title">{{movie.title}}</span>
+      <a href="#/movies" class="backToWall" title="Back to movies Wall">All movies</a>
+</header>
+<section id="movie">
+    <section class="poster">
+      <img ng-src="data/covers/{{id}}.jpg"/>
+    </section>
+    <section class="content">
+      <p id="directors">
+        Directed by :
+        <span class="directors">{{movie.directors[0]}}</span>     
+      </p>
+
+      <h3>Synopsis</h3>
+      <hr/>
+      {{movie.plot}}
+    </section>
+</section>

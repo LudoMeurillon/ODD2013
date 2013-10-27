@@ -1,0 +1,299 @@
+/* app css stylesheet */
+@import url(http://fonts.googleapis.com/css?family=Share+Tech);
+
+body {
+  background: black;
+  color: white;
+  margin:20px;
+}
+
+.header{
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index: 9999;
+  height: 60px;
+  width:100%;
+  padding-top: 10px;
+  background: black;
+  font-family: Share Tech;
+  box-shadow: inset 0 1px 0 0 #454545,0 1px 5px 0 rgba(0,0,0,0.76);
+}
+.header .title{
+  font-size:20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color:#f0ad4e;
+}
+
+.header ul{
+  font-size: 16px;
+  padding: 0px;
+  display: none;
+  max-width: 200px;
+  position: absolute;
+  padding:10px;
+  border-radius: 5px;
+  background-color: black;
+  box-shadow: inset 0 1px 0 0 #454545,0 1px 5px 0 rgba(0,0,0,0.76);
+}
+.header ul:hover{
+  display: inline-block;
+}
+
+.header .tags-button:hover ul{
+  display:inline-block;
+}
+.tags-button {
+  transition: all 0.3s;
+  color:#979797;
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  display: inline;
+  cursor: pointer;
+}
+.tags-button:hover {
+  color:#e4e4e4;
+}
+.tags-button.selected{
+  color:#f0ad4e;
+}
+
+.movies-list .tags{
+  display: inline;
+  cursor: pointer;
+}
+
+.movies-list .tag{
+  display:inline;
+  transition: all 0.3s;
+  background-color: dark-grey;
+}
+
+.movies-list .tag:hover{
+  display:inline;
+  box-shadow: inset 0px 0px 7px 0px #4d4d4d !important;
+}
+
+.movies-list .tag.unselected{
+  background-color: grey;
+}
+
+.movies-list input{
+  margin-left:30px;
+  display: inline;
+  border-radius: 50px;
+  width:15%;
+}
+
+.movies-list input:focus{
+  border-color: #f0ad4e;
+}
+
+
+.movies-list .movies{
+  padding-top: 40px;
+}
+
+
+.movies > ul {
+  padding: 0px;
+}
+
+.movie {
+  width:20%; 
+  height:350px; 
+  display:block; 
+  float:left; 
+  list-style-type:none; 
+  overflow:hidden;
+  position:relative;
+}
+
+.movie:hover{
+  opacity: 0.90 !important;
+}
+
+.movie .movie-shadow{
+  position:absolute;
+  top:0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  transition: all 0.3s;
+}
+.movie:hover .movie-shadow{
+  box-shadow: inset 0px 0px 7px 0px #4d4d4d !important;
+}
+
+vote ul{
+  font-size:10px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+vote ul li { 
+  display: inline; 
+}
+
+.movie > a > img{
+  width:100%; 
+  height:100%;
+}
+
+
+.movie .movie-detail-icon{
+  display:none;
+  position:absolute;
+  z-index: 1000000;
+  border: 2px solid #d3d3d3;
+  width:50px;
+  height:50px;
+  bottom: 10px;
+  left: 10px;
+  cursor: pointer;
+  /*border-radius: 50%;*/
+  background:rgba(32,32,32,0.95);
+}
+
+.movie .movie-detail-icon i{
+  font-size:25px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+
+.movie > .movie-abstract{
+  display:none;
+  height:50;
+  position:absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  padding: 10px;
+  background:rgba(32,32,32,0.95);
+}
+
+.movie .movie-abstract span{
+  display:block;
+  margin-top: 5px;
+}
+
+.movie .movie-abstract h3{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: Share Tech;
+}
+
+
+.movie-detail-icon ~ .movie-genres{
+  display: none;
+  padding:0px;
+  height:50px;
+  position:absolute;
+  top:10px;
+  left:10px;
+  list-style-type: none;
+}
+
+.movie-detail-icon:hover ~ .movie-genres{
+  display:none !important;
+}
+
+.movie-detail-icon:hover ~ .movie-abstract{
+  display:block;
+}
+
+
+/*
+Affichage des composants au survol des affiches de film
+*/
+.movie:hover .movie-detail-icon{
+  display:block;
+}
+
+.movie:hover .movie-genres{
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+#movie{
+  background: #1d1d1d;
+}
+
+#movie h3{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: #8c8c8c;
+  background-color: #000;
+  margin: 0 auto;
+  width: 100px;
+  z-index: 10;
+  position: relative;
+  font-family: 'Lato';
+}
+
+#movie h3+hr{
+  margin: -10px 0 20px;
+  border-color: #2e2e2e;
+}
+
+#movie .poster{ 
+  position:absolute;
+  top:70px;
+  left:10px;
+  width:250px;
+}
+#movie .content{ 
+  position:absolute;
+  top:70px;
+  left:260px;
+  padding:30px;
+}
+#movie .content p{
+  color: #8f8f8f;
+}
+#movie .content .directors{
+  color: #fff;
+} 
+
+a.backToWall{
+  height: 41px;
+  width: 60px;
+  line-height: 60px;
+  background: #2e2e2e;
+  text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  text-indent: -9999em;
+  position: absolute;
+  right:10px;
+  top: 10px;
+  background: url("../img/bt_menu.png") no-repeat left top;
+}
+a.backToWall:hover {
+background-position: left -41px;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,6 @@
+<ul ng-show="{{vote != undefined}}">
+	<li ng-repeat="i in range(stars)">
+		<i class="glyphicon glyphicon-star" ng-show="(i*{{max}}/{{stars}}) < {{vote}}"/>
+		<i class="glyphicon glyphicon-star-empty" ng-show="i*{{max}}/{{stars}}> {{vote}}"/>
+	</li>
+</ul>
