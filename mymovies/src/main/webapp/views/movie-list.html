@@ -10,9 +10,10 @@
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-show="{{movie.poster.cover != undefined}}" ng-repeat="movie in movies">
+			<li ng-show="{{movie.poster.cover != undefined}}" ng-repeat="movie in movies" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="{{movie.poster.cover}}"/>
+					<span class="movie-shadow"/>
 				</a>
 				<section class="movie-detail-icon">
 					<i class="glyphicon glyphicon-film"/>

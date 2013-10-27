@@ -9,7 +9,7 @@ body {
   padding: 0px;
 }
 
-.movies > ul > li {
+.movie {
   width:20%; 
   height:350px; 
   display:block; 
@@ -19,8 +19,19 @@ body {
   position:relative;
 }
 
-.movies > ul > li:hover{
+.movie:hover{
   opacity: 0.90 !important;
+}
+
+.movie .movie-shadow{
+  position:absolute;
+  top:0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  transition: all 0.3s;
+}
+.movie:hover .movie-shadow{
   box-shadow: inset 0px 0px 7px 0px #4d4d4d !important;
 }
 
@@ -35,12 +46,13 @@ vote ul li {
   display: inline; 
 }
 
-.movies > ul > li > a > img{
+.movie > a > img{
   width:100%; 
   height:100%;
 }
 
-.movies > ul > li .movie-detail-icon{
+
+.movie .movie-detail-icon{
   display:none;
   position:absolute;
   z-index: 1000000;
@@ -54,18 +66,14 @@ vote ul li {
   background:rgba(32,32,32,0.95);
 }
 
-.movies > ul > li .movie-detail-icon i{
+.movie .movie-detail-icon i{
   font-size:25px;
   margin-left: 10px;
   margin-top: 5px;
 }
 
 
-.movies > ul > li:hover .movie-detail-icon{
-  display:block;
-}
-
-.movies > ul > li > .movie-abstract{
+.movie > .movie-abstract{
   display:none;
   height:50;
   position:absolute;
@@ -77,17 +85,12 @@ vote ul li {
   background:rgba(32,32,32,0.95);
 }
 
-.movies > ul > li .movie-detail-icon:hover+.movie-abstract{
-  display:block;
-}
-
-
-.movies > ul > li .movie-abstract span{
+.movie .movie-abstract span{
   display:block;
   margin-top: 5px;
 }
 
-.movies > ul > li .movie-abstract h3{
+.movie .movie-abstract h3{
   margin-top: 5px;
   margin-bottom: 5px;
   font-family: Share Tech;
@@ -97,7 +100,6 @@ vote ul li {
 .movie-detail-icon ~ .movie-genres{
   display: none;
   padding:0px;
-  z-index: 1000000;
   height:50px;
   position:absolute;
   top:10px;
@@ -105,10 +107,22 @@ vote ul li {
   list-style-type: none;
 }
 
-.movies > ul > li:hover .movie-genres{
-  display: block;
+.movie-detail-icon:hover ~ .movie-genres{
+  display:none !important;
 }
 
-.movie-detail-icon:hover ~ .movie-genres{
-  display:none;
+.movie-detail-icon:hover ~ .movie-abstract{
+  display:block;
+}
+
+
+/*
+Affichage des composants au survol des affiches de film
+*/
+.movie:hover .movie-detail-icon{
+  display:block;
+}
+
+.movie:hover .movie-genres{
+  display: block;
 }
