@@ -4,7 +4,63 @@
 body {
   background: black;
   color: white;
+  margin:20px;
 }
+
+.movies-list header{
+  position: fixed;
+  top:0px;
+  z-index: 9999;
+  height: 60px;
+  width:100%;
+  padding-top: 10px;
+  background: black;
+  box-shadow: inset 0 1px 0 0 #454545,0 1px 5px 0 rgba(0,0,0,0.76);
+}
+.movies-list header .title{
+  font-family: Share Tech;
+  font-size:20px;
+  padding-right: 15px;
+}
+
+.movies-list header ul{
+  padding: 0px;
+  display: inline;
+}
+.movies-list .filters{
+  display: inline;
+  cursor: pointer;
+}
+
+.movies-list .category-filter{
+  display:inline;
+  transition: all 0.3s;
+  background-color: dark-grey;
+}
+
+.movies-list .category-filter:hover{
+  display:inline;
+  box-shadow: inset 0px 0px 7px 0px #4d4d4d !important;
+}
+
+.movies-list .category-filter.unselected{
+  background-color: grey;
+}
+
+.movies-list input{
+  margin-left:30px;
+  display: inline;
+  border-radius: 50px;
+  width:15%;
+}
+
+
+
+.movies-list .movies{
+  padding-top: 40px;
+}
+
+
 .movies > ul {
   padding: 0px;
 }

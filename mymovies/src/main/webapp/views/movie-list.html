@@ -1,16 +1,18 @@
-<section>
+<section class="movies-list">
 	<header>
-			Filter group
-			<div class="btn-group btn-group-horizontal">
-				<button class="btn" data-toggle="buttons-checkbox">Horror</button>
-				<button class="btn" data-toggle="buttons-checkbox">Fantastic</button>
-				<button class="btn" data-toggle="buttons-checkbox">Comedy</button>
-			</div>
+			<span class="title">My Favorites Movies</span>
+			<ul>
+				<li ng-repeat="cat in categories | orderBy:'toLowerCase'" class="filters">
+					<span class="label category-filter label-warning" ng-show="isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+					<span class="label category-filter unselected" ng-show="!isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+				</li>
+			</ul>
+				<input ng-model="actorsearch" placeholder="Looking for an actor?" class="form-control"></input>
 	</header>
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-show="{{movie.poster.cover != undefined}}" ng-repeat="movie in movies" class="movie">
+			<li ng-show="{{movie.poster.cover != undefined}}" ng-repeat="movie in movies | selectedGenres:filters | actorSearch:actorsearch" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="{{movie.poster.cover}}"/>
 					<span class="movie-shadow"/>
@@ -33,7 +35,7 @@
 				</section>
 				<ul class="movie-genres">
 					<li ng-repeat="genre in movie.genres | limitTo:3">
-						<span class="label label-info">{{genre}}</span>
+						<span class="label label-warning">{{genre}}</span>
 					</li>
 				</ul>
 			</li>
