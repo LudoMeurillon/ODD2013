@@ -184,56 +184,6 @@
       ]
    },
    {
-      "genres":[
-         "Action",
-         "Adventure",
-         "Comedy",
-         "Fantasy",
-         "Sci-Fi"
-      ],
-      "language":[
-         "English"
-      ],
-      "title":"Teenage Mutant Ninja Turtles",
-      "country":[
-         "USA"
-      ],
-      "release_date":20140808,
-      "filming_locations":"New York City, New York, USA",
-      "imdb_id":"tt1291150",
-      "directors":[
-         "Jonathan Liebesman"
-      ],
-      "writers":[
-         "Kevin Eastman",
-         "Peter Laird"
-      ],
-      "actors":[
-         "Megan Fox",
-         "William Fichtner",
-         "Alan Ritchson",
-         "Will Arnett",
-         "Whoopi Goldberg",
-         "Noel Fisher",
-         "Jeremy Howard",
-         "Abby Elliott",
-         "Danny Woodburn",
-         "Pete Ploszek",
-         "Minae Noji",
-         "Alison Fernandez",
-         "K. Todd Freeman",
-         "Malina Weissman",
-         "Casey Roberts"
-      ],
-      "plot_simple":"Aliens invade Earth and inadvertently spawn a quartet of mutated reptilian warriors, the Ninja Turtles, who rise up against them to defend the world.",
-      "year":2014,
-      "type":"M",
-      "imdb_url":"http://www.imdb.com/title/tt1291150/",
-      "also_known_as":[
-         "As Tartarugas Ninja"
-      ]
-   },
-   {
       "rating_count":374976,
       "genres":[
          "Crime",
@@ -1120,5 +1070,5 @@
       "also_known_as":[
          "S\u00fcr\u00fcc\u00fc"
       ]
-   }
+   },{"rating_count": 354579, "genres": ["Animation", "Adventure", "Comedy", "Drama", "Family", "Fantasy"], "rated": "PG", "language": ["English"], "rating": 8.3, "country": ["USA"], "release_date": 20090804, "title": "Up", "year": 2009, "imdb_id": "tt1049413", "directors": ["Pete Docter", "Bob Peterson"], "writers": ["Pete Docter", "Bob Peterson"], "actors": ["Edward Asner", "Christopher Plummer", "Jordan Nagai", "Bob Peterson", "Delroy Lindo", "Jerome Ranft", "John Ratzenberger", "David Kaye", "Elie Docter", "Jeremy Leary", "Mickie McGowan", "Danny Mann", "Donald Fullilove", "Jess Harnell", "Josh Cooley"], "plot_simple": "By tying thousands of balloons to his home, 78-year-old Carl sets out to fulfill his lifelong dream to see the wilds of South America. Russell, a wilderness explorer 70 years younger, inadvertently becomes a stowaway.", "poster": {"imdb": null, "cover": "http://imdb-poster.b0.upaiyun.com/001/049/413.jpg!cover?_upt=6da41b0b1382921161"}, "runtime": ["96 min"], "type": "M", "imdb_url": "http://www.imdb.com/title/tt1049413/", "also_known_as": ["Up - Una aventura de altura"]},{"rating_count": 388781, "genres": ["Animation", "Adventure", "Comedy", "Family"], "rated": "G", "language": ["English"], "rating": 8.1, "country": ["Australia", "USA"], "release_date": 20030530, "title": "Finding Nemo", "year": 2003, "imdb_id": "tt0266543", "directors": ["Andrew Stanton", "Lee Unkrich"], "writers": ["Andrew Stanton"], "actors": ["Albert Brooks", "Ellen DeGeneres", "Alexander Gould", "Willem Dafoe", "Brad Garrett", "Allison Janney", "Austin Pendleton", "Stephen Root", "Vicki Lewis", "Joe Ranft", "Geoffrey Rush", "Andrew Stanton", "Elizabeth Perkins", "Nicholas Bird", "Bob Peterson"], "plot_simple": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.", "poster": {"imdb": "http://ia.media-imdb.com/images/M/MV5BMTY1MTg1NDAxOV5BMl5BanBnXkFtZTcwMjg1MDI5Nw@@._V1_SY317_CR0,0,214,317_.jpg", "cover": "http://imdb-poster.b0.upaiyun.com/000/266/543.jpg!cover?_upt=c9cb4bf21382921300"}, "runtime": ["100 min"], "type": "VG", "imdb_url": "http://www.imdb.com/title/tt0266543/", "also_known_as": ["Finding Nemo 3D"]},{"rating_count": 412330, "genres": ["Animation", "Adventure", "Family", "Romance", "Sci-Fi"], "language": ["English"], "rating": 8.5, "country": ["USA"], "release_date": 20081205, "title": "U\u00f4r\u00ee\n            \"WALL\u00b7E\"", "year": 2008, "imdb_id": "tt0910970", "directors": ["Andrew Stanton"], "writers": ["Andrew Stanton", "Pete Docter"], "actors": ["Ben Burtt", "Elissa Knight", "Jeff Garlin", "Fred Willard", "MacInTalk", "John Ratzenberger", "Kathy Najimy", "Sigourney Weaver", "Lori Alan", "Bob Bergen", "John Cygan", "Pete Docter", "Paul Eiding", "Donald Fullilove", "Teresa Ganzel"], "plot_simple": "In the distant future, a small waste collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.", "poster": {"imdb": "http://ia.media-imdb.com/images/M/MV5BMTczOTA3MzY2N15BMl5BanBnXkFtZTcwOTYwNjE2MQ@@._V1_SY317_CR0,0,214,317_.jpg", "cover": "http://imdb-poster.b0.upaiyun.com/000/910/970.jpg!cover?_upt=680e5f4c1382921408"}, "runtime": ["98 min"], "type": "M", "imdb_url": "http://www.imdb.com/title/tt0910970/", "also_known_as": ["U\u00f4r\u00ee"]}
 ]

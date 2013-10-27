@@ -17,7 +17,7 @@ mymoviesApp.config(['$routeProvider',
         controller: 'MovieListCtrl'
       }).
       when('/movies/:movieId', {
-        templateUrl: 'views/movies-detail.html',
+        templateUrl: 'views/movie-detail.html',
         controller: 'MovieDetailCtrl'
       }).
       otherwise({

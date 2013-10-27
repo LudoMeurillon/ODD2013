@@ -7,43 +7,76 @@ body {
   margin:20px;
 }
 
-.movies-list header{
+.header{
   position: fixed;
   top:0px;
+  left:0px;
   z-index: 9999;
   height: 60px;
   width:100%;
   padding-top: 10px;
   background: black;
+  font-family: Share Tech;
   box-shadow: inset 0 1px 0 0 #454545,0 1px 5px 0 rgba(0,0,0,0.76);
 }
-.movies-list header .title{
-  font-family: Share Tech;
+.header .title{
   font-size:20px;
+  padding-left: 15px;
   padding-right: 15px;
+  color:#f0ad4e;
 }
 
-.movies-list header ul{
+.header ul{
+  font-size: 16px;
   padding: 0px;
-  display: inline;
+  display: none;
+  max-width: 200px;
+  position: absolute;
+  padding:10px;
+  border-radius: 5px;
+  background-color: black;
+  box-shadow: inset 0 1px 0 0 #454545,0 1px 5px 0 rgba(0,0,0,0.76);
 }
-.movies-list .filters{
+.header ul:hover{
+  display: inline-block;
+}
+
+.header .tags-button:hover ul{
+  display:inline-block;
+}
+.tags-button {
+  transition: all 0.3s;
+  color:#979797;
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  display: inline;
+  cursor: pointer;
+}
+.tags-button:hover {
+  color:#e4e4e4;
+}
+.tags-button.selected{
+  color:#f0ad4e;
+}
+
+.movies-list .tags{
   display: inline;
   cursor: pointer;
 }
 
-.movies-list .category-filter{
+.movies-list .tag{
   display:inline;
   transition: all 0.3s;
   background-color: dark-grey;
 }
 
-.movies-list .category-filter:hover{
+.movies-list .tag:hover{
   display:inline;
   box-shadow: inset 0px 0px 7px 0px #4d4d4d !important;
 }
 
-.movies-list .category-filter.unselected{
+.movies-list .tag.unselected{
   background-color: grey;
 }
 
@@ -54,6 +87,9 @@ body {
   width:15%;
 }
 
+.movies-list input:focus{
+  border-color: #f0ad4e;
+}
 
 
 .movies-list .movies{
@@ -182,3 +218,82 @@ Affichage des composants au survol des affiches de film
 .movie:hover .movie-genres{
   display: block;
 }
+
+
+
+
+
+
+
+
+
+
+#movie{
+  background: #1d1d1d;
+}
+
+#movie h3{
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: #8c8c8c;
+  background-color: #000;
+  margin: 0 auto;
+  width: 100px;
+  z-index: 10;
+  position: relative;
+  font-family: 'Lato';
+}
+
+#movie h3+hr{
+  margin: -10px 0 20px;
+  border-color: #2e2e2e;
+}
+
+#movie .poster{ 
+  position:absolute;
+  top:70px;
+  left:10px;
+  width:250px;
+}
+#movie .content{ 
+  position:absolute;
+  top:70px;
+  left:260px;
+  padding:30px;
+}
+#movie .content p{
+  color: #8f8f8f;
+}
+#movie .content .directors{
+  color: #fff;
+} 
+
+a.backToWall{
+  height: 41px;
+  width: 60px;
+  line-height: 60px;
+  background: #2e2e2e;
+  text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  text-indent: -9999em;
+  position: absolute;
+  right:10px;
+  top: 10px;
+  background: url("../img/bt_menu.png") no-repeat left top;
+}
+a.backToWall:hover {
+background-position: left -41px;
+}
+
+
+
+
+
+
+
+
+
+

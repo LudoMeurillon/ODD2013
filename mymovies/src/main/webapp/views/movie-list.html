@@ -1,20 +1,25 @@
 <section class="movies-list">
-	<header>
+	<header class="header">
 			<span class="title">My Favorites Movies</span>
-			<ul>
-				<li ng-repeat="cat in categories | orderBy:'toLowerCase'" class="filters">
-					<span class="label category-filter label-warning" ng-show="isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
-					<span class="label category-filter unselected" ng-show="!isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
-				</li>
-			</ul>
-				<input ng-model="actorsearch" placeholder="Looking for an actor?" class="form-control"></input>
+			
+			<input ng-model="actorsearch" placeholder="Looking for an actor?" class="form-control"></input>
+
+			<section ng-class="tagStyle()">
+				TAGS
+				<ul>
+					<li ng-repeat="cat in categories | orderBy:'toLowercase()'" class="tags">
+						<span class="label tag label-warning" ng-show="isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+						<span class="label tag unselected" ng-show="!isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+					</li>
+				</ul>
+			</section>
 	</header>
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-show="{{movie.poster.cover != undefined}}" ng-repeat="movie in movies | selectedGenres:filters | actorSearch:actorsearch" class="movie">
+			<li ng-repeat="movie in movies | selectedGenres:filters | actorSearch:actorsearch | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
-					<img ng-src="{{movie.poster.cover}}"/>
+					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>
 				</a>
 				<section class="movie-detail-icon">
