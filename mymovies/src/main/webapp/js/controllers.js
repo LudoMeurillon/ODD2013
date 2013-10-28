@@ -117,19 +117,31 @@ mymoviesControllers
 		    	scope:{
 		    		vote:"=value",
 		    		max:"=max",
-		    		stars:"=stars",
-		    		range:"&"
+		    		stars:"=stars"
 		    	},
 		    	link : function(scope){
-		    		scope.range = function(max){
+		    		//Genere un tableau de 1 à max [1,2,3 .... max]
+		    		scope.range = function(max, $scope){
 		    			var array = [];
 		    			for (var i = 1; i <= max; i++) {
 		    				array.push(i);
 		    			}
 		    			return array;
-		    		}
+		    		};
+
+		    		//Donne la classe css d'une etoile selon sa place et le vote
+		    		scope.getStarClass = function(starIndex){
+		    			var starValue = scope.max / scope.stars;
+		    			if(starIndex * starValue > scope.vote){
+		    				//Etoile vide
+		    				return "glyphicon glyphicon-star-empty"; 
+		    			}
+		    			//Etoile pleine
+		    			return "glyphicon glyphicon-star"; 
+		    		};
+
 		    	},
-		    	templateUrl: 'templates/vote.html'
+		    	template: "<ul><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
 		    };
 		});
 
@@ -138,7 +150,7 @@ mymoviesControllers
 mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','Movie', 
 	function($scope, $routeParams, Movie) {
 			$scope.id = $routeParams.movieId;
-			$scope.Movie = Movie.get(
+			Movie.get(
 					{
 						movieId : $routeParams.movieId
 					}, 
