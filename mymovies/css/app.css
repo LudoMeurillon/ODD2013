@@ -100,16 +100,19 @@ body {
   padding: 0px;
 }
 
+.movie{
+    display:block; 
+    float:left; 
+    list-style-type:none; 
+    overflow:hidden;
+    position:relative;
+}
+
 @media screen and (min-width: 1215px){
 	.movie {
 	  width:240px; 
 	  max-width:240px;
 	  height:350px; 
-	  display:block; 
-	  float:left; 
-	  list-style-type:none; 
-	  overflow:hidden;
-	  position:relative;
 	}
 	
 	#movie .poster{ 
@@ -117,63 +120,66 @@ body {
 	  top:70px;
 	  left:10px;
 	  width:240px;
+    opacity: 1; 
 	}
 	#movie .content{ 
 	  position:absolute;
 	  top:70px;
 	  left:260px;
-	  padding:30px;
+    padding-right: 30px;
+    padding-left: 30px;
 	}
 }
 
 @media screen and (min-width: 815px) and (max-width: 1215px){
 	.movie {
 	  width:160px; 
-	  max-width:160px;
 	  height:233px; 
-	  display:block; 
-	  float:left; 
-	  list-style-type:none; 
-	  overflow:hidden;
-	  position:relative;
 	}
 	
 	#movie .poster{ 
-	  position:absolute;
-	  top:70px;
-	  left:10px;
-	  width:160px;
-	}
-	#movie .content{ 
-	  position:absolute;
-	  top:70px;
-	  left:180px;
-	  padding:30px;
-	}
+    position:absolute;
+    top:70px;
+    left:10px;
+    width:240px;
+    opacity: 1; 
+  }
+  #movie .content{ 
+    position:absolute;
+    top:70px;
+    left:260px;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
 }
 @media screen and (max-width: 815px){
 	.movie {
 	  width:120px;
 	  height:175px; 
-	  display:block; 
-	  float:left; 
-	  list-style-type:none; 
-	  overflow:hidden;
-	  position:relative;
 	}
 	
-	#movie .poster{ 
-	  position:absolute;
-	  top:70px;
-	  left:10px;
-	  width:120px;
+	#movie .poster{
+    position:absolute;
+    top:70px;
+    left:-250px;
+    width:240px;
+    opacity: 0; 
 	}
+
 	#movie .content{ 
 	  position:absolute;
 	  top:70px;
-	  left:140px;
-	  padding:30px;
+	  left:10px;
+    padding-right: 10px;
+    padding-left: 10px;
 	}
+}
+
+.movie, #movie .poster, #movie .content{
+  transition:all .3s linear; 
+  -o-transition:all .3s linear; 
+  -moz-transition:all .3s linear; 
+  -webkit-transition:all .3s linear;
 }
 
 .movie:hover{
@@ -294,7 +300,7 @@ Affichage des composants au survol des affiches de film
 
 
 #movie{
-  background: #1d1d1d;
+
 }
 
 #movie h3{
@@ -304,7 +310,7 @@ Affichage des composants au survol des affiches de film
   font-size: 12px;
   color: #8c8c8c;
   background-color: #000;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 100px;
   z-index: 10;
   position: relative;
@@ -312,8 +318,18 @@ Affichage des composants au survol des affiches de film
 }
 
 #movie h3+hr{
-  margin: -10px 0 20px;
+  margin: -28px 70px 20px;
   border-color: #2e2e2e;
+}
+
+#movie .content h1{
+  font-family: Share Tech;
+  text-align : center;
+  margin-top: 5px;
+}
+#movie .content .bigvote ul{
+  font-size: 20px;
+  text-align : center;
 }
 
 #movie .poster img{ 
@@ -324,9 +340,37 @@ Affichage des composants au survol des affiches de film
 #movie .content p{
   color: #8f8f8f;
 }
-#movie .content .directors{
+#movie .content p span{
+  padding-left: 5px;
+}
+
+#movie .content .directors,
+#movie .content .date,
+#movie .content .duration,
+#movie .content .actors{
   color: #fff;
+  text-align: right;
 } 
+
+#movie .content #actors{
+  margin-top: 20px;
+}
+
+#movie .content .tags{
+  list-style-type : none; 
+  text-align : center;
+  padding: 0px;
+}
+#movie .content .tags, 
+#movie .content #duration{
+  float: right;
+  clear: right;
+  display: inline-block;
+}
+
+#movie .content ul li{
+  display : inline;
+}
 
 a.backToWall{
   height: 41px;

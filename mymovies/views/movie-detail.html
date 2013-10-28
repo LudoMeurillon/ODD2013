@@ -1,15 +1,31 @@
 <header class="header">
-      <span class="title">{{movie.title}}</span>
+      <span class="title">My Favorites Movies</span>
       <a href="#/movies" class="backToWall" title="Back to movies Wall">All movies</a>
 </header>
-<section id="movie">
+<section id="movie" ng-show="movie" ng-cloak>
     <section class="poster">
       <img ng-src="data/covers/{{id}}.jpg"/>
     </section>
     <section class="content">
-      <p id="directors">
-        Directed by :
-        <span class="directors">{{movie.directors[0]}}</span>     
+      <h1>{{movie.title}}</h1>
+      <vote value="movie.rating" max="10" stars="10" class="bigvote"/>
+      <ul class="tags">
+          <li ng-repeat="genre in movie.genres | limitTo:3">
+            <span class="label label-warning">{{genre}}</span>
+          </li>
+      </ul>
+      <p id="duration">
+        <span>Duration : </span><span class="duration">{{movie.runtime[0]}}</span>     
+      </p>
+      <p id="date">
+        Date : <span class="date">{{movie.release_date}}</span>     
+      </p>
+
+      <p id="directors" >
+        Directed by : <span class="directors">{{(movie.directors||[]) | separatedByCommas }}</span>     
+      </p>
+      <p id="actors">
+        With : <span class="actors">{{(movie.actors||[])  | separatedByCommas }}</span>
       </p>
 
       <h3>Synopsis</h3>
