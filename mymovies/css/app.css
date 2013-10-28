@@ -83,7 +83,7 @@ body {
   margin-left:30px;
   display: inline;
   border-radius: 50px;
-  width:15%;
+  width:200px;
 }
 
 .movies-list input:focus{
