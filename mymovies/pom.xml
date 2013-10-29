@@ -42,6 +42,17 @@
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>1.8</version>
+        </dependency>
+     
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>1.8</version>
+        </dependency>
 
 <!-- 		<dependency> -->
 <!-- 			<groupId>org.glassfish.jersey.containers</groupId> -->
