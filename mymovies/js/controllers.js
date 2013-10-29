@@ -115,6 +115,7 @@ mymoviesControllers
 			return {
 		    	restrict: 'E',
 		    	scope:{
+		    		name:"=label",
 		    		vote:"=value",
 		    		max:"=max",
 		    		stars:"=stars"
@@ -141,18 +142,18 @@ mymoviesControllers
 		    		};
 
 		    	},
-		    	template: "<ul><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
+		    	template: "<ul>{{name}}<li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
 		    };
 		});
 
 
 
-mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','Movie', 
-	function($scope, $routeParams, Movie) {
+mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','omdbApi', 
+	function($scope, $routeParams, omdbApi) {
 			$scope.id = $routeParams.movieId;
-			Movie.get(
+			omdbApi.get(
 					{
-						movieId : $routeParams.movieId
+						i : $routeParams.movieId
 					}, 
 					function(movie) {
 						$scope.movie = movie;
