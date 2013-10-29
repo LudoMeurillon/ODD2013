@@ -15,6 +15,7 @@ mymoviesServices
           function($resource){
             return $resource('rest/movie/:movieId', {}, {});
           }])
+
         .factory('omdbApi', ['$resource',
           function($resource){
                 return $resource('http://www.omdbapi.com/', {}, {
