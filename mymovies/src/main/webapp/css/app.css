@@ -83,7 +83,7 @@ body {
   margin-left:30px;
   display: inline;
   border-radius: 50px;
-  width:15%;
+  width:200px;
 }
 
 .movies-list input:focus{
@@ -152,7 +152,7 @@ body {
     padding-left: 30px;
   }
 }
-@media screen and (max-width: 815px){
+@media screen and (min-width: 480px)  and (max-width: 815px){
 	.movie {
 	  width:120px;
 	  height:175px; 
@@ -175,7 +175,8 @@ body {
 	}
 }
 
-.movie, #movie .poster, #movie .content{
+
+.movies-list .movies, .movie, #movie .poster, #movie .content{
   transition:all .3s linear; 
   -o-transition:all .3s linear; 
   -moz-transition:all .3s linear; 
@@ -291,7 +292,63 @@ Affichage des composants au survol des affiches de film
 }
 
 
+/* < 4 films par ligne */
+@media screen and (max-width: 480px) {
+  .header{
+    position: fixed;
+    top:0px;
+    left:0px;
+    z-index: 9999;
+    height: 80px;
+    width:100%;
+    padding-top: 10px;
+    font-family: Share Tech;
+    box-shadow: inset 0 1px 0 0 #454545,0 1px 5px 0 rgba(0,0,0,0.76);
+  }
+  .header .title{
+    display:none;
+  }
 
+  .header input {
+    width:100%;
+    display: block;
+    margin: 0px;
+  }
+  .header .tags-button{
+    display: block;
+    margin-top: 10px;
+  }
+
+  .movies-list .movies{
+    padding-top: 80px;
+  }
+
+  .movie {
+    width:120px;
+    height:175px; 
+  }
+  
+  #movie .poster{
+    position:absolute;
+    top:70px;
+    left:-250px;
+    width:240px;
+    opacity: 0; 
+  }
+
+  #movie .content{ 
+    position:absolute;
+    top:70px;
+    left:10px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  /* Pas de genres sur les affiches */
+  .movie:hover .movie-genres{
+    display: block;
+  }
+}
 
 
 
@@ -329,6 +386,10 @@ Affichage des composants au survol des affiches de film
 }
 #movie .content .bigvote ul{
   font-size: 20px;
+  text-align : center;
+}
+
+#movie .content vote ul{
   text-align : center;
 }
 
