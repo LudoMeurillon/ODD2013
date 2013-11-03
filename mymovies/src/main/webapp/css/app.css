@@ -206,6 +206,16 @@ vote ul{
   list-style-type: none;
 }
 
+vote ul span{
+  display:inline-block;
+  text-align: right;
+  min-width: 65px;
+  padding-right:10px;
+}
+vote ul span:empty{
+  display: none;
+}
+
 vote ul li { 
   display: inline; 
 }

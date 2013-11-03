@@ -115,12 +115,11 @@ mymoviesControllers
 			return {
 		    	restrict: 'E',
 		    	scope:{
-		    		name:"=label",
 		    		vote:"=value",
 		    		max:"=max",
 		    		stars:"=stars"
 		    	},
-		    	link : function(scope){
+		    	link : function(scope, element, attrs){
 		    		//Genere un tableau de 1 à max [1,2,3 .... max]
 		    		scope.range = function(max, $scope){
 		    			var array = [];
@@ -141,8 +140,10 @@ mymoviesControllers
 		    			return "glyphicon glyphicon-star"; 
 		    		};
 
+		    		scope.label = attrs["label"]
+
 		    	},
-		    	template: "<ul>{{name}}<li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
+		    	template: "<ul><span>{{label}}</span><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
 		    };
 		});
 
