@@ -14,7 +14,6 @@ describe('Movies controllers', function() {
   beforeEach(module('mymoviesServices'));
   beforeEach(module('mymoviesControllers'));
 
-
   describe('MovieListCtrl', function(){
     var scope, ctrl, $httpBackend;
 
@@ -65,17 +64,59 @@ describe('Movies controllers', function() {
       expect(scope.categories.length).toBe(6);
     });
 
-    it('should say that category is not selected if no filters is set', function() {
-      expect(scope.filters.length).toBe(0);
+    describe("isSelected", function(){
 
-      expect(scope.isSelected("any")).toBe(false);
-    }); 
+      it('should say that category is not selected if no filters is set', function() {
+        expect(scope.filters.length).toBe(0);
 
-    it('should say that category is selected', function() {
-      scope.filters.push("selectedCategory")
+        expect(scope.isSelected("any")).toBe(false);
+      }); 
 
-      expect(scope.isSelected("selectedCategory")).toBe(true);
-      expect(scope.isSelected("otherCategory")).toBe(false);
-    });    
+      it('should say that category is selected', function() {
+        scope.filters.push("selectedCategory")
+
+        expect(scope.isSelected("selectedCategory")).toBe(true);
+        expect(scope.isSelected("otherCategory")).toBe(false);
+      });
+    });   
+
+    describe("filter", function(){
+
+      it('should add filter if not active', function() {
+        expect(scope.filters.length).toBe(0);
+
+        //When
+        scope.filter("cat");
+
+        //Then
+        expect(scope.filters.length).toBe(1);
+      });
+
+      it('should remove filter if active', function() {
+        scope.filters.push("cat")
+        expect(scope.filters.length).toBe(1);
+
+        //when
+        scope.filter("cat");
+        
+        //then
+        expect(scope.filters.length).toBe(0);
+      });
+
+    });
+
+    describe("tagStyle", function(){
+      it('should set selected class if any tag is selected', function() {
+        scope.filters.push("cat");
+
+        expect(scope.tagStyle()).toMatch(/selected/);
+      });
+
+      it('should remove selected class if no tag is selected', function() {
+
+        expect(scope.tagStyle()).not.toMatch(/selected/);
+      });
+    });
+
   });
 });
