@@ -4,7 +4,7 @@
 </header>
 <section id="movie" ng-show="movie" ng-cloak>
     <section class="poster">
-      <img ng-src="{{movie.Poster}}" rel="noreferrer"/>
+      <img ng-src="{{posterSource}}" rel="noreferrer"/>
     </section>
     <section class="content">
       <h1>{{movie.Title}}</h1>
@@ -38,5 +38,12 @@
       <h3>Critic</h3>
       <hr/>
       {{movie.tomatoConsensus}}
+      <h3>Photos</h3>
+      <hr/>
+      <section>
+        <span ng-repeat="photo in photos">
+          <img ng-src="{{photo}}"/>
+        </span>
+      </section>
     </section>
 </section>

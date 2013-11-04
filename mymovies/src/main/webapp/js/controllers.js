@@ -149,15 +149,53 @@ mymoviesControllers
 
 
 
-mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','omdbApi', 
-	function($scope, $routeParams, omdbApi) {
+mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','omdbApi', 'themoviedbApi',
+	function($scope, $routeParams, omdbApi, themoviedbApi) {
 			$scope.id = $routeParams.movieId;
+			$scope.photos = [];
 			omdbApi.get(
 					{
 						i : $routeParams.movieId
 					}, 
 					function(movie) {
-						$scope.movie = movie;
+						$scope.setMovie(movie);
 					});
+
+			$scope.setMovie = function(movie){
+				$scope.movie = movie;
+				$scope.moviedb_config();
+			};
+
+			$scope.moviedb_config = function(){
+				themoviedbApi.config().then(
+					function(result){
+						$scope.config = result.data;
+						$scope.moviedb_search();
+					}
+				);
+			}
+			
+
+			$scope.moviedb_search = function(){
+				themoviedbApi.search($scope.movie.Title).then(
+					function(result){
+						$scope.moviedb_movieid = result.data.results[0].id;
+						$scope.moviedb_images()
+					}
+				);
+			}
+
+			$scope.moviedb_images = function(){
+				themoviedbApi.images($scope.moviedb_movieid).then(
+					function(result){
+						console.log(result.data);
+						$scope.posterSource = $scope.config.images.base_url+"original"+result.data.posters[0].file_path;
+						
+						angular.forEach(result.data.backdrops, function(poster){
+							$scope.photos.push($scope.config.images.base_url+"w185"+poster.file_path);
+						})
+					}
+				);
+			}
 		} ]);
 

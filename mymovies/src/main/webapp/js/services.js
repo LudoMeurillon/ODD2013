@@ -15,6 +15,40 @@ mymoviesServices
 	  function($resource){
 	    return $resource('rest/movie/:movieId', {}, {});
 	  }])
+	.factory('themoviedbApi', ['$http', 
+		function($http){
+		    var themoviedbApi = {
+		    	config : function(){
+		    		return $http.get('http://api.themoviedb.org/3/configuration', 
+		    			{ params: 
+		    				{ 
+		    					api_key:"364d461c7e9fdcbc8644a38adf929a72"
+		    				}
+		    			});
+		    	},
+		    	search : function(title){
+		    		console.log("Looking for "+title+ " on moviedbapi")
+		    		return $http.get('http://api.themoviedb.org/3/search/movie', 
+		    			{ params: 
+		    				{ 
+		    					api_key:"364d461c7e9fdcbc8644a38adf929a72",
+		    				  	query : title
+		    				}
+		    			});
+		    	},
+		    	images : function(id){
+		    		console.log("Looking for images of "+id+ " on moviedbapi")
+		    		return $http.get('http://api.themoviedb.org/3/movie/'+id+"/images", 
+		    			{ params: 
+		    				{ 
+		    					api_key:"364d461c7e9fdcbc8644a38adf929a72"
+		    				}
+		    			});
+		    	}
+		    }
+		    return themoviedbApi;
+	  	}
+	])
 	.factory('omdbApi', ['$resource',
 	  function($resource){
 		return $resource('http://www.omdbapi.com/', {}, {
