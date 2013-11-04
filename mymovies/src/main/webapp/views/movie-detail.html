@@ -1,0 +1,42 @@
+<header class="header">
+      <span class="title">My Favorites Movies</span>
+      <a href="#/movies" class="backToWall" title="Back to movies Wall">All movies</a>
+</header>
+<section id="movie" ng-show="movie" ng-cloak>
+    <section class="poster">
+      <img ng-src="{{movie.Poster}}"/>
+    </section>
+    <section class="content">
+      <h1>{{movie.Title}}</h1>
+      <vote value="movie.imdbRating" max="10" stars="10" class="bigvote"/>
+      <vote label="Meter" value="movie.tomatoMeter" max="100" stars="10"/>
+      <vote label="Rating" value="movie.tomatoRating" max="10" stars="10"/>
+      <vote label="User Meter" value="movie.tomatoUserMeter" max="100" stars="10"/>
+      <vote label="User Rating" value="movie.tomatoUserRating" max="5" stars="10"/>
+      <ul class="tags">
+          <li ng-repeat="genre in movie.Genre.split(',')">
+            <span class="label label-warning">{{genre}}</span>
+          </li>
+      </ul>
+      <p id="duration">
+        <span>Duration : </span><span class="duration">{{movie.Runtime}}</span>     
+      </p>
+      <p id="date">
+        Date : <span class="date">{{movie.Released}}</span>     
+      </p>
+
+      <p id="directors" >
+        Directed by : <span class="directors">{{movie.Director}}</span>     
+      </p>
+      <p id="actors">
+        With : <span class="actors">{{movie.Actors}}</span>
+      </p>
+
+      <h3>Synopsis</h3>
+      <hr/>
+      {{movie.Plot}}
+      <h3>Critic</h3>
+      <hr/>
+      {{movie.tomatoConsensus}}
+    </section>
+</section>
