@@ -3,3 +3,12 @@ target/
 .classpath
 .project
 .settings/
+node_modules/
+selenium/
+mymovies/.classpath
+mymovies/.project
+mymovies/.settings/org.eclipse.m2e.core.prefs
+mymovies/.settings/org.eclipse.jdt.core.prefs
+mymovies/src/main/webapp/lib/ui-bootstrap-tpls-0.6.0.js
+mymovies/src/main/webapp/lib/ui-bootstrap-0.6.0.js
+mymovies/target/classes/org/mymovies/MyResource.class

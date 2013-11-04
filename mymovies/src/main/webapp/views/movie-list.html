@@ -1,55 +1,49 @@
-<div class="container">
-	<div class="row">
-		<div class="col-md-2">
+<section class="movies-list">
+	<header class="header">
+			<span class="title">My Favorites Movies</span>
+			
+			<input ng-model="actorsearch" placeholder="Looking for an actor?" class="form-control"></input>
 
-			<div class="panel panel-default">
-				<div class="panel-heading">Select genres</div>
-				<div class="panel-body">
-					<div class="btn-group btn-group-vertical">
-						<button class="btn" data-toggle="buttons-checkbox">Horror</button>
-						<button class="btn" data-toggle="buttons-checkbox">Fantastic</button>
-						<button class="btn" data-toggle="buttons-checkbox">Comedy</button>
-					</div>
-				</div>
-			</div>
-
-
-
-		</div>
-		<div class="col-md-10">
-			<!--Body content-->
-
-			<ul class="movies">
-				<li ng-repeat="movie in movies" class="movie-listing">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<a href="#/movies/{{movie.imdb_id}}" class="thumb img-thumbnail">
-								<img ng-src="data/covers/{{movie.imdb_id}}.jpg">
-							</a>
-
-
-							<h3>
-								<a href="#/movies/{{movie.imdb_id}}">{{movie.title}}</a>
-							</h3>
-
-
-							<p>
-								<span class="glyphicon glyphicon-star"></span>{{movie.rating}}
-							</p>
-
-							<p>By : {{movie.directors | separatedByCommas }}</p>
-							<p>With : {{movie.actors | limitSize | separatedByCommas }}</p>
-
-
-							<p>{{movie.plot_simple}}</p>
-
-						</div>
-					</div>
-
-
-				</li>
-			</ul>
-
-		</div>
-	</div>
-</div>
+			<section ng-class="tagStyle()">
+				TAGS
+				<ul>
+					<li ng-repeat="cat in categories | orderBy:'toLowercase()'" class="tags">
+						<span class="label tag label-warning" ng-show="isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+						<span class="label tag unselected" ng-show="!isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+					</li>
+				</ul>
+			</section>
+	</header>
+	<section class="movies">
+		<!--Body content-->
+		<ul>
+			<li ng-repeat="movie in movies | selectedGenres:filters | actorSearch:actorsearch | orderBy:'title'" class="movie">
+				<a href="#/movies/{{movie.imdb_id}}">
+					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
+					<span class="movie-shadow"/>
+				</a>
+				<section class="movie-detail-icon">
+					<i class="glyphicon glyphicon-film"/>
+				</section>
+				<section class="movie-abstract">
+					<h3>{{movie.title}}</h3>
+                 	<vote value="movie.rating" max="10" stars="10"/>
+                 	{{movie.rating}}
+                   	<!--<span class="glyphicon glyphicon-star"></span>-->
+					<span>
+						By : {{movie.directors | separatedByCommas }}
+					</span>
+					<span>
+						With : {{movie.actors | limitSize | separatedByCommas }}
+					<span>
+					{{movie.plot_simple}}
+				</section>
+				<ul class="movie-genres">
+					<li ng-repeat="genre in movie.genres | limitTo:3">
+						<span class="label label-warning">{{genre}}</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+</section>
