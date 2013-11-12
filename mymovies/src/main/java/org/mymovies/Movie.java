@@ -9,6 +9,7 @@ public class Movie {
 	private String[] directors;
 	private String[] runtime;
 	private String[] actors;
+	private String imdb_id;
 
 
 	public String getTitle() {
@@ -59,4 +60,11 @@ public class Movie {
 	public void setActors(String[] actors) {
 		this.actors = actors;
 	}
+	public String getImdb_id() {
+		return imdb_id;
+	}
+	public void setImdb_id(String imdb_id) {
+		this.imdb_id = imdb_id;
+	}
+	
 }

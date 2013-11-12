@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Collection;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 
-@Path("/movie")
+@Path("/movies")
 public class MovieResource {
 	
 	/**
@@ -28,16 +29,15 @@ public class MovieResource {
     @Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
     public Movie movie(@PathParam("id") String id) {
-    	try {
-    		ObjectMapper mapper = new ObjectMapper();
-    		mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    		return mapper.readValue(doHttpUrlConnectionAction("http://mymovieapi.com/?id="+id+"&plot=full"), Movie.class);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        return null;
+        return MoviesRepository.getMovie(id);
     }
+    
+    @GET
+    @Path("/")
+	@Produces(MediaType.APPLICATION_JSON)
+    public Collection<Movie> movies() {
+    	return MoviesRepository.getAllMovies();
+    }    
     
     /**
      * Returns the output from the given URL.

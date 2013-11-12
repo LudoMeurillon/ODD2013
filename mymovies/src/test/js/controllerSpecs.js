@@ -19,7 +19,8 @@ describe('Movies controllers', function() {
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('data/movies/movies.json').respond(
+//      $httpBackend.expectGET('data/movies/movies.json').respond(
+      $httpBackend.expectGET('rest/movies').respond(
         [{
           "genres":[
             "Biography",

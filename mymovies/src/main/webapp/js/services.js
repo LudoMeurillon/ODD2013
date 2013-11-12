@@ -5,15 +5,15 @@
 var mymoviesServices = angular.module('mymoviesServices', ['ngResource']);
 
 mymoviesServices
+//	.factory('Movie', ['$resource',
+//	  function($resource){
+//		return $resource('data/movies/:movieId.json', {}, {
+//	      query: {method:'GET', params:{movieId:'movies'}, isArray:true}
+//	    });
+//	  }])
 	.factory('Movie', ['$resource',
 	  function($resource){
-	    return $resource('data/movies/:movieId.json', {}, {
-	      query: {method:'GET', params:{movieId:'movies'}, isArray:true}
-	    });
-	  }])
-	.factory('movieFromApi', ['$resource',
-	  function($resource){
-	    return $resource('rest/movie/:movieId', {}, {});
+	    return $resource('rest/movies/:movieId', {}, {});
 	  }])
 	.factory('themoviedbApi', ['$http', 
 		function($http){

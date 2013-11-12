@@ -18,7 +18,8 @@ mymoviesControllers
 				});
 				$scope.categories = Object.keys(cats);
 			});
-			//Filtres d'affichage des films (tags)
+			//Filtres d'affichage des films (tags)*
+			
 			$scope.filters = [];
 			//Critère de recherche de fims sur la base de nom d'acteurs
 			$scope.actorsearch = "";
