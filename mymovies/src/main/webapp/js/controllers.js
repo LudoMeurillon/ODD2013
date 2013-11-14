@@ -7,6 +7,9 @@ var mymoviesControllers = angular.module('mymoviesControllers', []);
 mymoviesControllers
 	.controller('MovieListCtrl', [ '$scope', 'Movie',
 		function($scope, Movie) {
+			// positionne le titre de la page
+			$scope.pageTitle = 'My Favorite Movies'
+		
 			//Films récupérés par le service Movie
 			$scope.movies = Movie.query(function(){
 				//Initialisation des tags a partir de la liste de films récupérés.
@@ -152,6 +155,8 @@ mymoviesControllers
 
 mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','omdbApi', 'themoviedbApi',
 	function($scope, $routeParams, omdbApi, themoviedbApi) {
+
+			$scope.pageTitle = 'My Movie Details';
 			$scope.id = $routeParams.movieId;
 			$scope.photos = [];
 			omdbApi.get(

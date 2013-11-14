@@ -6,7 +6,13 @@ module.exports = function(config){
       'src/main/webapp/lib/angular/angular.js',
       'src/main/webapp/lib/angular/angular-*.js',
       'src/main/webapp/js/*.js',
-      'src/test/js/*.js',
+      'src/test/js/helper.js',
+      'src/test/js/step-0.js',
+      'src/test/js/step-1.js',
+      'src/test/js/step-2.js'
+//      'src/test/js/controllerSpecs.js',
+//      'src/test/js/directiveSpecs.js',
+//      'src/test/js/filterSpecs.js'
     ],
 
     exclude: ['src/main/webapp/lib/angular/angular-scenario.js'],

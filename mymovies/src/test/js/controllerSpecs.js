@@ -3,13 +3,6 @@
 /* jasmine specs for controllers go here */
 describe('Movies controllers', function() {
 
-  beforeEach(function(){
-    this.addMatchers({
-      toEqualData: function(expected) {
-        return angular.equals(this.actual, expected);
-      }
-    });
-  });
 
   beforeEach(module('mymoviesServices'));
   beforeEach(module('mymoviesControllers'));
@@ -42,8 +35,13 @@ describe('Movies controllers', function() {
       );
 
       scope =  {};
+      // instancie un controlleur 'MovieListCtrl'
       ctrl = $controller('MovieListCtrl', {$scope: scope});
     }));
+
+    it('should be initialized with page title', function() {
+      expect(scope.pageTitle).toBe("My Favorite Movies");
+    });
 
     it('should be initialized with empty filters', function() {
       expect(scope.filters.length).toBe(0);

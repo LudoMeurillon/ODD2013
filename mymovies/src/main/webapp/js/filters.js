@@ -8,8 +8,10 @@
  */
 angular.module('mymoviesFilters', [])
 .filter('limitSize', function() {
-	return function(input) {
-		var max = 3;
+	return function(input, max) {
+		if (typeof (max) == 'undefined') {
+			max = 3;
+		}
 		if (input.length <= max) {
 			return input;
 		}

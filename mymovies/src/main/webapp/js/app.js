@@ -24,3 +24,7 @@ mymoviesApp.config(['$routeProvider',
         redirectTo: '/movies'
       });
   }]);
+
+mymoviesApp.run(function ($rootScope) {
+    $rootScope.applicationTitle = 'My Favorite Movies !'
+});
