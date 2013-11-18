@@ -25,7 +25,7 @@ mymoviesControllers
 			
 			$scope.filters = [];
 			//Critère de recherche de fims sur la base de nom d'acteurs
-			$scope.actorsearch = "";
+			$scope.actor = "";
 			//Renvoie vrai si le tag 'category' est selectionné
 			$scope.isSelected = function(category){
 				return ($.inArray(category, $scope.filters) > -1);
@@ -86,70 +86,28 @@ mymoviesControllers
 		a un nom qui correspond au critère de recherche (comparaison en miniscule)
 	*/
 	.filter('actorSearch', function() {
-	    return function( items, search ) {
+	    return function( movies, search ) {
 	      if(search == ""){
-	      	return items;
+	      	return movies;
 	      }
-	      console.log('actorSearch', search, items);
-	      var filtered = [];
+	      console.log('actorSearch', search, movies);
+	      var filteredMovies = [];
 	      var criteria = search.toLowerCase();
-	      angular.forEach(items, function(item) {
-	      	var actors = item.actors;
-	      	if(actors){
-		      	angular.forEach(actors, function(actor){
-		      		if( actor.toLowerCase().search(criteria) > -1){
-		      			if($.inArray(item, filtered) == -1){
-		      				filtered.push(item);
-		      			}
-		      		}
-		      	});
-		    }
+	      angular.forEach(movies, function(movie) {
+	      	var actors = movie.actors;
+	      	angular.forEach(actors, function(actor){
+	      		if( actor.toLowerCase().search(criteria) > -1) { 
+	      			// le nom de l'acteur correspond au critère
+	      			// ==> ajoute le film à la liste de films filtrés
+	      			if($.inArray(movie, filteredMovies) == -1){
+	      				filteredMovies.push(movie);
+	      			}
+	      		}
+		    });
 	      });
-	      return filtered;
+	      return filteredMovies;
 	    };
-	})
-	/*
-		Directive permettant d'afficher une note avec des étoiles
-
-		Exemple : pour afficher une note de 5.2/10 avec 20 étoiles
-		
-			<vote value='5.2' max='10' stars='20'/>
-	*/
-	.directive('vote', function(){
-			return {
-		    	restrict: 'E',
-		    	scope:{
-		    		vote:"=value",
-		    		max:"=max",
-		    		stars:"=stars"
-		    	},
-		    	link : function(scope, element, attrs){
-		    		//Genere un tableau de 1 à max [1,2,3 .... max]
-		    		scope.range = function(max, $scope){
-		    			var array = [];
-		    			for (var i = 1; i <= max; i++) {
-		    				array.push(i);
-		    			}
-		    			return array;
-		    		};
-
-		    		//Donne la classe css d'une etoile selon sa place et le vote
-		    		scope.getStarClass = function(starIndex){
-		    			var starValue = scope.max / scope.stars;
-		    			if(starIndex * starValue > scope.vote){
-		    				//Etoile vide
-		    				return "glyphicon glyphicon-star-empty"; 
-		    			}
-		    			//Etoile pleine
-		    			return "glyphicon glyphicon-star"; 
-		    		};
-
-		    		scope.label = attrs["label"]
-
-		    	},
-		    	template: "<ul><span>{{label}}</span><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
-		    };
-		});
+	});
 
 
 

@@ -6,6 +6,7 @@ var mymoviesApp = angular.module('mymoviesApp', [
   'ngRoute',
   'mymoviesControllers',
   'mymoviesFilters',
+  'mymoviesDirectives',
   'mymoviesServices'
 ]);
 

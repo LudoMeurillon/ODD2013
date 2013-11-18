@@ -2,7 +2,7 @@
 	<header class="header">
 			<span class="title">{{pageTitle}}</span>
 			
-			<input ng-model="actorsearch" placeholder="Looking for an actor?" class="form-control"></input>
+			<input ng-model="actor" placeholder="Looking for an actor?" class="form-control"></input>
 
 			<section ng-class="tagStyle()">
 				TAGS
@@ -17,7 +17,7 @@
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-repeat="movie in movies | selectedGenres:filters | actorSearch:actorsearch | orderBy:'title'" class="movie">
+			<li ng-repeat="movie in movies | selectedGenres:filters | actorSearch:actor | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>

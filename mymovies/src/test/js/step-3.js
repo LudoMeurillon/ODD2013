@@ -4,7 +4,7 @@
 
 describe('directives', function() {
 
-  beforeEach(module('mymoviesControllers'));
+  beforeEach(module('mymoviesDirectives'));
 
   describe('vote', function() {
     it('should print label before stars', function() {

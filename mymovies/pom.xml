@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.nirvanapp</groupId>
-    <artifactId>searchmovie</artifactId>
+    <artifactId>mymovies</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
@@ -45,6 +45,7 @@
                 </executions>
                 <configuration>
                     <browsers>Chrome</browsers>
+                    <autoWatch>true</autoWatch>
                 </configuration>
             </plugin>
         </plugins>
