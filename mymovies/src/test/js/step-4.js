@@ -1,7 +1,7 @@
 'use strict';
 
 /* jasmine specs for controllers go here */
-describe('Movies controllers', function() {
+describe('My Favorite Movies - Step 4', function() {
 
 
   beforeEach(module('mymoviesServices'));
@@ -38,7 +38,10 @@ describe('Movies controllers', function() {
       ctrl = $controller('MovieListCtrl', {$scope: scope});
     }));
 
-    
+
+    it('should be initialized with no selected tags', function() {
+      expect(scope.selectedTags.length).toBe(0);
+    });
 
     it('should mege all movies categories', function() {
       expect(scope.categories).toBeUndefined();
@@ -49,47 +52,47 @@ describe('Movies controllers', function() {
     describe("isSelected", function(){
 
       it('should say that category is not selected if no filters is set', function() {
-        expect(scope.filters.length).toBe(0);
+        expect(scope.selectedTags.length).toBe(0);
 
         expect(scope.isSelected("any")).toBe(false);
       }); 
 
       it('should say that category is selected', function() {
-        scope.filters.push("selectedCategory")
+        scope.selectedTags.push("selectedCategory")
 
         expect(scope.isSelected("selectedCategory")).toBe(true);
         expect(scope.isSelected("otherCategory")).toBe(false);
       });
     });   
 
-    describe("filter", function(){
+    describe("toogleSelectedTag", function(){
 
-      it('should add filter if not active', function() {
-        expect(scope.filters.length).toBe(0);
+      it('should add tag to selected tags if not already active', function() {
+        expect(scope.selectedTags.length).toBe(0);
 
         //When
-        scope.filter("cat");
+        scope.toogleSelectedTag("cat");
 
         //Then
-        expect(scope.filters.length).toBe(1);
+        expect(scope.selectedTags.length).toBe(1);
       });
 
-      it('should remove filter if active', function() {
-        scope.filters.push("cat")
-        expect(scope.filters.length).toBe(1);
+      it('should remove tag from selected tags if already active', function() {
+        scope.selectedTags.push("cat")
+        expect(scope.selectedTags.length).toBe(1);
 
         //when
-        scope.filter("cat");
+        scope.toogleSelectedTag("cat");
         
         //then
-        expect(scope.filters.length).toBe(0);
+        expect(scope.selectedTags.length).toBe(0);
       });
 
     });
 
     describe("tagStyle", function(){
       it('should set selected class if any tag is selected', function() {
-        scope.filters.push("cat");
+        scope.selectedTags.push("cat");
 
         expect(scope.tagStyle()).toMatch(/selected/);
       });

@@ -17,7 +17,7 @@
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-repeat="movie in movies | selectedGenres:filters | actorSearch:actor | orderBy:'title'" class="movie">
+			<li ng-repeat="movie in movies | selectedGenres:selectedTags | actorSearch:actor | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>

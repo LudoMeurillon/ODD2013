@@ -1,6 +1,6 @@
 'use strict';
 
-describe('My Favorite Movies - Step 0', function() {
+describe('My Favorite Movies - Step 1', function() {
 	
   var mockMymoviesServices;
 

@@ -23,24 +23,24 @@ mymoviesControllers
 			});
 			//Filtres d'affichage des films (tags)*
 			
-			$scope.filters = [];
-			//Critère de recherche de fims sur la base de nom d'acteurs
+			$scope.selectedTags = [];
+			//Critère de recherche de films sur la base de nom d'acteurs
 			$scope.actor = "";
 			//Renvoie vrai si le tag 'category' est selectionné
 			$scope.isSelected = function(category){
-				return ($.inArray(category, $scope.filters) > -1);
+				return ($.inArray(category, $scope.selectedTags) > -1);
 			};
 			//Selection/Deselectionne un filtre tag
-			$scope.filter = function(category){
+			$scope.toogleSelectedTag = function(category){
 				if($scope.isSelected(category)){
-					var index = $scope.filters.indexOf(category);
-					$scope.filters.splice(index,1);
+					var index = $scope.selectedTags.indexOf(category);
+					$scope.selectedTags.splice(index,1);
 				}else{
-					$scope.filters.push(category);
+					$scope.selectedTags.push(category);
 				}
 			};
 			$scope.tagStyle = function(){
-				if($scope.filters.length > 0){
+				if($scope.selectedTags.length > 0){
 					return "tags-button selected"
 				}
 				return "tags-button"

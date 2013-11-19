@@ -2,7 +2,7 @@
 
 /* jasmine specs for directives go here */
 
-describe('directives', function() {
+describe('My Favorite Movies - Step 3', function() {
 
   beforeEach(module('mymoviesDirectives'));
 

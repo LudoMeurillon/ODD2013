@@ -1,7 +1,7 @@
 'use strict';
 
 /* jasmine specs for controllers go here */
-describe('My Favorite Movies - Controllers - Step 1', function() {
+describe('My Favorite Movies - Controllers - Step 2', function() {
 
 
   beforeEach(module('mymoviesServices'));
@@ -38,9 +38,6 @@ describe('My Favorite Movies - Controllers - Step 1', function() {
       ctrl = $controller('MovieListCtrl', {$scope: scope});
     }));
 
-    it('should be initialized with empty filters', function() {
-      expect(scope.filters.length).toBe(0);
-    });
 
     it('should be initialized with empty actor search terms', function() {
       expect(scope.actor).toBe("");
@@ -52,70 +49,12 @@ describe('My Favorite Movies - Controllers - Step 1', function() {
       expect(scope.movies.length).toBe(2);
     });
 
-//    it('should mege all movies categories', function() {
-//      expect(scope.categories).toBeUndefined();
-//      $httpBackend.flush();
-//      expect(scope.categories.length).toBe(6);
-//    });
 
-//    describe("isSelected", function(){
-//
-//      it('should say that category is not selected if no filters is set', function() {
-//        expect(scope.filters.length).toBe(0);
-//
-//        expect(scope.isSelected("any")).toBe(false);
-//      }); 
-//
-//      it('should say that category is selected', function() {
-//        scope.filters.push("selectedCategory")
-//
-//        expect(scope.isSelected("selectedCategory")).toBe(true);
-//        expect(scope.isSelected("otherCategory")).toBe(false);
-//      });
-//    });   
-
-//    describe("filter", function(){
-//
-//      it('should add filter if not active', function() {
-//        expect(scope.filters.length).toBe(0);
-//
-//        //When
-//        scope.filter("cat");
-//
-//        //Then
-//        expect(scope.filters.length).toBe(1);
-//      });
-//
-//      it('should remove filter if active', function() {
-//        scope.filters.push("cat")
-//        expect(scope.filters.length).toBe(1);
-//
-//        //when
-//        scope.filter("cat");
-//        
-//        //then
-//        expect(scope.filters.length).toBe(0);
-//      });
-//
-//    });
-
-//    describe("tagStyle", function(){
-//      it('should set selected class if any tag is selected', function() {
-//        scope.filters.push("cat");
-//
-//        expect(scope.tagStyle()).toMatch(/selected/);
-//      });
-//
-//      it('should remove selected class if no tag is selected', function() {
-//
-//        expect(scope.tagStyle()).not.toMatch(/selected/);
-//      });
-//    });
 
   });
 });
 
-describe('My Favorite Movies - Filters - Step 1', function() {
+describe('My Favorite Movies - Filters - Step 2', function() {
 
 
 	// mymoviesFilters définit des filtres globaux
