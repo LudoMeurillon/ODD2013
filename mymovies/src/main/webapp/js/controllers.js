@@ -13,13 +13,9 @@ mymoviesControllers
 			//Films récupérés par le service Movie
 			$scope.movies = Movie.query(function(){
 				//Initialisation des tags a partir de la liste de films récupérés.
-				var cats = [];
-				angular.forEach($scope.movies , function(movie){
-					angular.forEach(movie.genres, function(genre){
-						cats[genre]=true;
-					});
-				});
-				$scope.categories = Object.keys(cats);
+				
+				// TODO : construire un objet 'categories' dont les champs correspondent
+				// à l'ensemble des catégories des films récupérées
 			});
 			
 			// TODO : déclarer un tableau 'selectedTags' vide,
