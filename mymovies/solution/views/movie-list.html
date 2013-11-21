@@ -1,0 +1,49 @@
+<section class="movies-list">
+	<header class="header">
+			<span class="title">{{pageTitle}}</span>
+			
+			<input ng-model="actor" placeholder="Looking for an actor?" class="form-control"></input>
+
+			<section ng-class="tagStyle()">
+				TAGS
+				<ul>
+					<li ng-repeat="cat in categories | orderBy:'toLowercase()'" class="tags">
+						<span class="label tag label-warning" ng-show="isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+						<span class="label tag unselected" ng-show="!isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+					</li>
+				</ul>
+			</section>
+	</header>
+	<section class="movies">
+		<!--Body content-->
+		<ul>
+			<li ng-repeat="movie in movies | selectedGenres:selectedTags | actorSearch:actor | orderBy:'title'" class="movie">
+				<a href="#/movies/{{movie.imdb_id}}">
+					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
+					<span class="movie-shadow"/>
+				</a>
+				<section class="movie-detail-icon">
+					<i class="glyphicon glyphicon-film"/>
+				</section>
+				<section class="movie-abstract">
+					<h3>{{movie.title}}</h3>
+                 	<vote value="movie.rating" max="10" stars="10"/>
+                 	{{movie.rating}}
+                   	<!--<span class="glyphicon glyphicon-star"></span>-->
+					<span>
+						By : {{movie.directors | separatedByCommas }}
+					</span>
+					<span>
+						With : {{movie.actors | limitSize | separatedByCommas }}
+					<span>
+					{{movie.plot_simple}}
+				</section>
+				<ul class="movie-genres">
+					<li ng-repeat="genre in movie.genres | limitTo:3">
+						<span class="label label-warning">{{genre}}</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</section>
+</section>

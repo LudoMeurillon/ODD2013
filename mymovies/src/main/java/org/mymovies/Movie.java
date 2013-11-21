@@ -3,13 +3,17 @@ package org.mymovies;
 public class Movie {
 	private String title;
 	private String plot;
+	private String plot_simple;
 	private long rating;
 	private String[] genres;
 	private String release_date;
+	private String year;
 	private String[] directors;
 	private String[] runtime;
 	private String[] actors;
 	private String imdb_id;
+	private String tomatoMeter, tomatoRating, tomatoUserMeter, tomatoUserRating, tomatoConsensus;
+	private String webSite;
 
 
 	public String getTitle() {
@@ -66,5 +70,55 @@ public class Movie {
 	public void setImdb_id(String imdb_id) {
 		this.imdb_id = imdb_id;
 	}
+	public String getTomatoMeter() {
+		return tomatoMeter;
+	}
+	public void setTomatoMeter(String tomatoMeter) {
+		this.tomatoMeter = tomatoMeter;
+	}
+	public String getTomatoRating() {
+		return tomatoRating;
+	}
+	public void setTomatoRating(String tomatoRating) {
+		this.tomatoRating = tomatoRating;
+	}
+	public String getTomatoUserMeter() {
+		return tomatoUserMeter;
+	}
+	public void setTomatoUserMeter(String tomatoUserMeter) {
+		this.tomatoUserMeter = tomatoUserMeter;
+	}
+	public String getTomatoUserRating() {
+		return tomatoUserRating;
+	}
+	public void setTomatoUserRating(String tomatoUserRating) {
+		this.tomatoUserRating = tomatoUserRating;
+	}
+	public String getWebSite() {
+		return webSite;
+	}
+	public void setWebSite(String webSite) {
+		this.webSite = webSite;
+	}
+	public String getTomatoConsensus() {
+		return tomatoConsensus;
+	}
+	public void setTomatoConsensus(String tomatoConsensus) {
+		this.tomatoConsensus = tomatoConsensus;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getPlot_simple() {
+		return plot_simple;
+	}
+	public void setPlot_simple(String plot_simple) {
+		this.plot_simple = plot_simple;
+	}
+	
+	
 	
 }
