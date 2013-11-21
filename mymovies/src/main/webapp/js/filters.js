@@ -12,11 +12,13 @@ angular.module('mymoviesFilters', [])
 		if (typeof (max) == 'undefined') {
 			max = 3;
 		}
-		if (input.length <= max) {
-			return input;
-		}
-		var out = input.slice(0, max);
-		out[max] = '...';
+
+		// TODO : si la taille du tableau 'input' est inférieure ou égale à 'max'
+		// renvoyer 'input'
+		// sinon, renvoyer un tableau de taille 'max' correspondant au début du tableau input
+		// et dont le dernier élément vaut la chaine "..."
+
+		
 		return out;
 
 	};
@@ -29,12 +31,8 @@ angular.module('mymoviesFilters', [])
 .filter('separatedByCommas', function() {
 	return function(input) {
 		var out = "";
-		for ( var i = 0; i < input.length; i++) {
-			if (i > 0) {
-				out += ", ";
-			}
-			out += input[i];
-		}
+		// TODO : concatener dans 'out' chaque élément du tableau 'input'.
+		// separer les éléments par un caractère ',' (virgule)
 
 		return out;
 	};

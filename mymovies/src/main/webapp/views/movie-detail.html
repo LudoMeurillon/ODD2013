@@ -8,11 +8,7 @@
     </section>
     <section class="content">
       <h1>{{movie.title}}</h1>
-      <vote value="movie.rating" max="10" stars="10" class="bigvote"/>
-      <vote label="Meter" value="movie.tomatoMeter" max="100" stars="10"/>
-      <vote label="Rating" value="movie.tomatoRating" max="10" stars="10"/>
-      <vote label="User Meter" value="movie.tomatoUserMeter" max="100" stars="10"/>
-      <vote label="User Rating" value="movie.tomatoUserRating" max="5" stars="10"/>
+      
       <ul class="tags">
           <li ng-repeat="genre in movie.genres.split(',')">
             <span class="label label-warning">{{genre}}</span>
@@ -26,10 +22,18 @@
       </p>
 
       <p id="directors" >
-        Directed by : <span class="directors">{{movie.directors | separatedByCommas}}</span>     
+      		<!-- 
+						TODO : ajouter un filtre qui permet de séparer transformer un tableau de chaine
+						en une chaine de valeurs séparées par des virgules
+						(filtre 'separatedByCommas')
+			-->
+        Directed by : <span class="directors">{{movie.directors}}</span>     
       </p>
       <p id="actors">
-        With : <span class="actors">{{movie.actors| separatedByCommas}}</span>
+       		<!-- 
+						TODO : ajouter le même 'separatedByCommas'
+			-->
+        With : <span class="actors">{{movie.actors}}</span>
       </p>
 
       <h3>Synopsis</h3>

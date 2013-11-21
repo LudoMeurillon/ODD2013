@@ -10,72 +10,16 @@ mymoviesControllers
 			// positionne le titre de la page
 			$scope.pageTitle = 'My Favorite Movies'
 		
-			//Films récupérés par le service Movie
-			$scope.movies = Movie.query(function(){
-				//Initialisation des tags a partir de la liste de films récupérés.
-				
-				// TODO : construire un objet 'categories' dont les champs correspondent
-				// à l'ensemble des catégories des films récupérées
-			});
+			// Films récupérés par le service Movie
+			$scope.movies = Movie.query();
 			
-			// TODO : déclarer un tableau 'selectedTags' vide,
 			
-			//Critère de recherche de films sur la base de nom d'acteurs
-			$scope.actor = "";
-			//Renvoie vrai si le tag 'category' est selectionné
-			$scope.isSelected = function(category){
-				// TODO : tester la présence de 'category' parmi les tags sélectionnés
-			};
+			// Critère de recherche de films sur la base de nom d'acteurs
 			
-			//Selection/Deselectionne un filtre tag
-			$scope.toogleSelectedTag = function(category){
-				// TODO : si 'category' est selectionnée, l'enlever des tags selectionés
-				// sinon, l'ajouter dans les tags sélectionnés
-			};
-			
-			// cette fonction permet de déterminer la/les classes à appliquer
-			// à la section des tags
-			$scope.tagStyle = function(){
-				// TODO : si au moins un tag est sélectionné
-				// renvoyer la chaine 'tags-button selected"
-				// sinon renvoyer simplement la chaine 'tags-button'
-			}
+			// TODO : ajouter une propriété 'actor' au scope. Cette propriété est valorisé
+			// via le champ de saisie dans la page html. 
 		}
 	])
-	/*
-		Filtre permettant de selectionner les films qui 
-		correspondent aux tags selectionnés.
-	*/
-	.filter('selectedGenres', function() {
-	    return function( items, filters ) {
-	      var filtered = [];
-	      //Pas de filtre selectionné, on affiche tout
-	      if(filters.length == 0){
-	      	return items;
-	      }
-	      angular.forEach(items, function(item) {
-	      	//On copie les filtres selectionnés pour les eliminer 
-	      	//à chaque correspondance pour le film testé
-	      	var searchedGenres = [];
-	      	angular.forEach(filters, function(filter){
-	      		searchedGenres[filter]=false;
-	      	});
-
-	      	var currentGenres = item.genres;
-	      	if(currentGenres){
-		      	angular.forEach(filters, function(filter){
-		      		if(currentGenres.indexOf(filter) > -1){
-		      			delete searchedGenres[filter];
-		      		}
-		      	});
-		    }
-		    if(Object.keys(searchedGenres).length == 0){
-		    	filtered.push(item);
-			}
-	      });
-	      return filtered;
-	    };
-	})
 	/*
 		Filtre permettant de selectionner les films dont un des acteurs
 		a un nom qui correspond au critère de recherche (comparaison en miniscule)
@@ -86,20 +30,16 @@ mymoviesControllers
 	      	return movies;
 	      }
 	      console.log('actorSearch', search, movies);
+	      
+	      // liste des films ayant passé le filtre
 	      var filteredMovies = [];
-	      var criteria = search.toLowerCase();
-	      angular.forEach(movies, function(movie) {
-	      	var actors = movie.actors;
-	      	angular.forEach(actors, function(actor){
-	      		if( actor.toLowerCase().search(criteria) > -1) { 
-	      			// le nom de l'acteur correspond au critère
-	      			// ==> ajoute le film à la liste de films filtrés
-	      			if($.inArray(movie, filteredMovies) == -1){
-	      				filteredMovies.push(movie);
-	      			}
-	      		}
-		    });
-	      });
+	      
+	      // TODO : parcourrir les films (on peut utiliser la fonction angular.forEach( <array>, <callback> ) )
+	      // pour chaque film, parcourrir les acteurs associés au film
+	      // pour chaque acteur du film, tester la correspondance de l'acteur avec la valeur du paramètre 'search'
+	      // si correspondance ==> ajouter le film dans la liste des films à renvoyer
+	      
+
 	      return filteredMovies;
 	    };
 	});

@@ -2,14 +2,19 @@
 	<header class="header">
 			<span class="title">{{pageTitle}}</span>
 			
-			<input ng-model="actor" placeholder="Looking for an actor?" class="form-control"></input>
+			<!-- TODO : Ajouter un input (class='form-control') associé à la propriété 'actor'
+			 du scope du controleur -->
 
 
 	</header>
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-repeat="movie in movies | actorSearch:actor | orderBy:'title'" class="movie">
+			<!-- TODO : ajouter le filtrage du film en fonction de la valeur de 'actor' (saisie précédement),
+				utiliser pour cela le filtre 'actorSearch'
+			 -->
+			 
+			<li ng-repeat="movie in movies | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>
@@ -19,14 +24,21 @@
 				</section>
 				<section class="movie-abstract">
 					<h3>{{movie.title}}</h3>
-                 	<vote value="movie.rating" max="10" stars="10"/>
-                 	{{movie.rating}}
-                   	<!--<span class="glyphicon glyphicon-star"></span>-->
 					<span>
-						By : {{movie.directors | separatedByCommas }}
+					
+					<!-- 
+						TODO : ajouter un filtre qui permet de séparer transformer un tableau de chaine
+						en une chaine de valeurs séparées par des virgules
+						(filtre 'separatedByCommas')
+					-->
+						By : {{movie.directors  }}
 					</span>
 					<span>
-						With : {{movie.actors | limitSize | separatedByCommas }}
+					<!-- 
+						TODO : ajouter un filtre 'limitSize' permettant limiter la taille du tableau et
+						ré-utiliser le filtre separatedByCommas'
+					-->
+						With : {{movie.actors }}
 					<span>
 					{{movie.plot_simple}}
 				</section>
