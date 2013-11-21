@@ -10,7 +10,7 @@ module.exports = function(config){
       ,'src/test/js/step-1.js'
       ,'src/test/js/step-2.js'
       ,'src/test/js/step-3.js'
-      ,'src/test/js/step-4.js'
+//      ,'src/test/js/step-4.js'
     ],
 
     exclude: ['src/main/webapp/lib/angular/angular-scenario.js'],

@@ -4,20 +4,12 @@
 			
 			<input ng-model="actor" placeholder="Looking for an actor?" class="form-control"></input>
 
-			<section ng-class="tagStyle()">
-				TAGS
-				<ul>
-					<li ng-repeat="cat in categories | orderBy:'toLowercase()'" class="tags">
-						<span class="label tag label-warning" ng-show="isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
-						<span class="label tag unselected" ng-show="!isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
-					</li>
-				</ul>
-			</section>
+
 	</header>
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-repeat="movie in movies | selectedGenres:selectedTags | actorSearch:actor | orderBy:'title'" class="movie">
+			<li ng-repeat="movie in movies | actorSearch:actor | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>
