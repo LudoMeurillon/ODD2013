@@ -22,31 +22,27 @@ mymoviesControllers
 				$scope.categories = Object.keys(cats);
 			});
 			
-			$scope.selectedTags = [];
+			// TODO : déclarer un tableau 'selectedTags' vide,
+			
 			//Critère de recherche de films sur la base de nom d'acteurs
 			$scope.actor = "";
 			//Renvoie vrai si le tag 'category' est selectionné
 			$scope.isSelected = function(category){
-				return ($.inArray(category, $scope.selectedTags) > -1);
+				// TODO : tester la présence de 'category' parmi les tags sélectionnés
 			};
 			
 			//Selection/Deselectionne un filtre tag
 			$scope.toogleSelectedTag = function(category){
-				if($scope.isSelected(category)){
-					var index = $scope.selectedTags.indexOf(category);
-					$scope.selectedTags.splice(index,1);
-				}else{
-					$scope.selectedTags.push(category);
-				}
+				// TODO : si 'category' est selectionnée, l'enlever des tags selectionés
+				// sinon, l'ajouter dans les tags sélectionnés
 			};
 			
 			// cette fonction permet de déterminer la/les classes à appliquer
 			// à la section des tags
 			$scope.tagStyle = function(){
-				if($scope.selectedTags.length > 0){
-					return "tags-button selected"
-				}
-				return "tags-button"
+				// TODO : si au moins un tag est sélectionné
+				// renvoyer la chaine 'tags-button selected"
+				// sinon renvoyer simplement la chaine 'tags-button'
 			}
 		}
 	])
