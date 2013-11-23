@@ -1,31 +1,26 @@
 'use strict';
 
 
-
 /**
  * From a given array of strings, returns an array with limited size.
  * the end of the array is replaced by a generic '...' string
  */
+function limitArraySize(array, max) {
+	if (typeof (max) == 'undefined') {
+		max = 3;
+	}
+	if (!array) {
+		return array;
+	}
+	if (array.length <= max) {
+		return array;
+	}
+	var out = array.slice(0, max);
+	out[max] = '...';
+	return out;
+}
+
 angular.module('mymoviesFilters', [])
-.filter('limitSize', function() {
-	return function(input, max) {
-		if (typeof (max) == 'undefined') {
-			max = 3;
-		}
-		if (input.length <= max) {
-			return input;
-		}
-		var out = input.slice(0, max);
-		out[max] = '...';
-		return out;
-
-	};
-})
-
-/**
- * From a given array of strings, returns a single corresponding the concatenation of values, separated by a commas
- */
-
 .filter('separatedByCommas', function() {
 	return function(input) {
 		var out = "";
@@ -39,6 +34,10 @@ angular.module('mymoviesFilters', [])
 		return out;
 	};
 })
+.filter('limitSize', function() {
+	return limitArraySize;
+})
+
 
 ; // no more filter
 
