@@ -13,16 +13,14 @@ mymoviesControllers
 			//Films récupérés par le service Movie
 			$scope.movies = Movie.query(function(){
 				//Initialisation des tags a partir de la liste de films récupérés.
-				var cats = [];
-				angular.forEach($scope.movies , function(movie){
-					angular.forEach(movie.genres, function(genre){
-						cats[genre]=true;
-					});
-				});
-				$scope.categories = Object.keys(cats);
+
+				// TODO - 4 : construire un objet 'categories' dont les champs correspondent
+				// à l'ensemble des catégories des films récupérées
 			});
 			
+			// cette liste contient les tags sélectionnés par l'utilisateur
 			$scope.selectedTags = [];
+			
 			//Critère de recherche de films sur la base de nom d'acteurs
 			$scope.actor = "";
 			//Renvoie vrai si le tag 'category' est selectionné
@@ -54,9 +52,10 @@ mymoviesControllers
 		Filtre permettant de selectionner les films qui 
 		correspondent aux tags selectionnés.
 	*/
-	.filter('selectedGenres', function() {
-	    return filterByTags;
-	})
+	
+	// TODO - 4 : déclarer un filtre 'selectedGenres' utilisant la fonction 'filterByTags'
+	// déclarée ci-dessous
+	
 	/*
 		Filtre permettant de selectionner les films dont un des acteurs
 		a un nom qui correspond au critère de recherche (comparaison en miniscule)

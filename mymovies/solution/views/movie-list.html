@@ -17,7 +17,14 @@
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<li ng-repeat="movie in movies | selectedGenres:selectedTags | actorSearch:actor | orderBy:'title'" class="movie">
+			<!-- 
+			
+				TODO - 4 : ajouter le filtre 'selectedGenres' à la liste des films
+				Noter que le filtre utilise un paramètre 'selectedTags' (la liste des tags
+				précédemment sélectionnés par l'utilisateur
+			--> 
+			 
+			<li ng-repeat="movie in movies  | actorSearch:actor | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>
