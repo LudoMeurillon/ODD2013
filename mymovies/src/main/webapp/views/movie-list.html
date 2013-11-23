@@ -8,8 +8,8 @@
 				TAGS
 				<ul>
 					<li ng-repeat="cat in categories | orderBy:'toLowercase()'" class="tags">
-						<span class="label tag label-warning" ng-show="isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
-						<span class="label tag unselected" ng-show="!isSelected(cat)" ng-click="filter(cat)">{{cat}}</span>
+						<span class="label tag label-warning" ng-show="isSelected(cat)" ng-click="toogleSelectedTag(cat)">{{cat}}</span>
+						<span class="label tag unselected" ng-show="!isSelected(cat)" ng-click="toogleSelectedTag(cat)">{{cat}}</span>
 					</li>
 				</ul>
 			</section>
@@ -29,7 +29,6 @@
 					<h3>{{movie.title}}</h3>
                  	<vote value="movie.rating" max="10" stars="10"/>
                  	{{movie.rating}}
-                   	<!--<span class="glyphicon glyphicon-star"></span>-->
 					<span>
 						By : {{movie.directors | separatedByCommas }}
 					</span>
