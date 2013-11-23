@@ -4,25 +4,12 @@
 			
 			<input ng-model="actor" placeholder="Looking for an actor?" class="form-control"></input>
 
-			<section ng-class="tagStyle()">
-				TAGS
-				<ul>
-					<li ng-repeat="cat in categories | orderBy:'toLowercase()'" class="tags">
-						<span class="label tag label-warning" ng-show="isSelected(cat)" ng-click="toogleSelectedTag(cat)">{{cat}}</span>
-						<span class="label tag unselected" ng-show="!isSelected(cat)" ng-click="toogleSelectedTag(cat)">{{cat}}</span>
-					</li>
-				</ul>
-			</section>
+
 	</header>
 	<section class="movies">
 		<!--Body content-->
 		<ul>
-			<!-- 
 			
-				TODO - 4 : ajouter le filtre 'selectedGenres' à la liste des films
-				Noter que le filtre utilise un paramètre 'selectedTags' (la liste des tags
-				précédemment sélectionnés par l'utilisateur
-			--> 
 			 
 			<li ng-repeat="movie in movies  | actorSearch:actor | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">

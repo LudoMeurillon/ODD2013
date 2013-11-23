@@ -11,50 +11,15 @@ mymoviesControllers
 			$scope.pageTitle = 'My Favorite Movies'
 		
 			//Films récupérés par le service Movie
-			$scope.movies = Movie.query(function(){
-				//Initialisation des tags a partir de la liste de films récupérés.
-
-				// TODO - 4 : construire un objet 'categories' dont les champs correspondent
-				// à l'ensemble des catégories des films récupérées
-			});
-			
-			// cette liste contient les tags sélectionnés par l'utilisateur
-			$scope.selectedTags = [];
+			$scope.movies = Movie.query();			
 			
 			//Critère de recherche de films sur la base de nom d'acteurs
 			$scope.actor = "";
-			//Renvoie vrai si le tag 'category' est selectionné
-			$scope.isSelected = function(category){
-				return ($.inArray(category, $scope.selectedTags) > -1);
-			};
-			
-			//Selection/Deselectionne un filtre tag
-			$scope.toogleSelectedTag = function(category){
-				if($scope.isSelected(category)){
-					var index = $scope.selectedTags.indexOf(category);
-					$scope.selectedTags.splice(index,1);
-				}else{
-					$scope.selectedTags.push(category);
-				}
-			};
-			
-			// cette fonction permet de déterminer la/les classes à appliquer
-			// à la section des tags
-			$scope.tagStyle = function(){
-				if($scope.selectedTags.length > 0){
-					return "tags-button selected"
-				}
-				return "tags-button"
-			}
+
 		}
 	])
-	/*
-		Filtre permettant de selectionner les films qui 
-		correspondent aux tags selectionnés.
-	*/
+
 	
-	// TODO - 4 : déclarer un filtre 'selectedGenres' utilisant la fonction 'filterByTags'
-	// déclarée ci-dessous
 	
 	/*
 		Filtre permettant de selectionner les films dont un des acteurs
