@@ -16,9 +16,9 @@ Exemple : pour afficher une note de 5.2/10 avec 20 étoiles
 	return {
     	restrict: 'E',
     	scope:{
-    		vote:"=value",
-    		max:"=max",
-    		stars:"=stars"
+    		// TODO - 3 : définir les 3 attributs de la directive : value, max et stars
+    		// respectivement associés aux variables vote, max et starts
+
     	},
     	link : function(scope, element, attrs){
     		//Genere un tableau de 1 à max [1,2,3 .... max]
@@ -44,6 +44,6 @@ Exemple : pour afficher une note de 5.2/10 avec 20 étoiles
     		scope.label = attrs["label"]
 
     	},
-    	template: "<ul><span>{{label}}</span><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
+    	// TODO - 3 : définir la proprieté 'template' avec la valeur correspondant à une chaine de template html
     };
 });
