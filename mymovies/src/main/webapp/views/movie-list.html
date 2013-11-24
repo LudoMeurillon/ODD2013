@@ -2,7 +2,8 @@
 	<header class="header">
 			<span class="title">{{pageTitle}}</span>
 			
-			<input ng-model="actor" placeholder="Looking for an actor?" class="form-control"></input>
+			<!-- TODO - 2 : Ajouter un input (class='form-control') associé à la propriété 'actor'
+			 du scope du controleur -->
 
 
 	</header>
@@ -10,8 +11,10 @@
 		<!--Body content-->
 		<ul>
 			
-			 
-			<li ng-repeat="movie in movies  | actorSearch:actor | orderBy:'title'" class="movie">
+			<!-- TODO - 2 : ajouter le filtrage du film en fonction de la valeur de 'actor' (saisie précédement),
+				utiliser pour cela le filtre 'actorSearch'
+			 -->
+			<li ng-repeat="movie in movies | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>
@@ -21,13 +24,16 @@
 				</section>
 				<section class="movie-abstract">
 					<h3>{{movie.title}}</h3>
-                 	<vote value="movie.rating" max="10" stars="10"/>
-                 	{{movie.rating}}
-					<span>
-						By : {{movie.directors | separatedByCommas }}
+                 	Rating :  {{movie.rating}}
+					<span>					
+						By : {{movie.directors | separatedByCommas}}
 					</span>
 					<span>
-						With : {{movie.actors | limitSize | separatedByCommas }}
+					<!-- 
+						TODO - 2 : mettre en place le filtre 'limitSize' permettant limiter la taille du tableau et
+						ré-utiliser le filtre 'separatedByCommas'. Attention l'ordre des filtres est important
+					-->											
+						With : {{movie.actors | separatedByCommas }}
 					<span>
 					{{movie.plot_simple}}
 				</section>

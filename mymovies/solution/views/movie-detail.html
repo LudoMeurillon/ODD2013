@@ -8,11 +8,7 @@
     </section>
     <section class="content">
       <h1>{{movie.title}}</h1>
-      <vote value="movie.rating" max="10" stars="10" class="bigvote"/>
-      <vote label="Meter" value="movie.tomatoMeter" max="100" stars="10"/>
-      <vote label="Rating" value="movie.tomatoRating" max="10" stars="10"/>
-      <vote label="User Meter" value="movie.tomatoUserMeter" max="100" stars="10"/>
-      <vote label="User Rating" value="movie.tomatoUserRating" max="5" stars="10"/>
+      Rating : {{movie.rating}}
       <ul class="tags">
           <li ng-repeat="genre in movie.genres.split(',')">
             <span class="label label-warning">{{genre}}</span>
