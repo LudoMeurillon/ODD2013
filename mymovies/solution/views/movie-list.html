@@ -1,17 +1,13 @@
 <section class="movies-list">
 	<header class="header">
-			<span class="title">{{pageTitle}}</span>
-			
-			<input ng-model="actor" placeholder="Looking for an actor?" class="form-control"></input>
-
-
+			<span class="title">{{pageTitle}}</span>			
 	</header>
 	<section class="movies">
 		<!--Body content-->
 		<ul>
 			
-			 
-			<li ng-repeat="movie in movies  | actorSearch:actor | orderBy:'title'" class="movie">
+			
+			<li ng-repeat="movie in movies | orderBy:'title'" class="movie">
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>
@@ -22,11 +18,11 @@
 				<section class="movie-abstract">
 					<h3>{{movie.title}}</h3>
                  	Rating :  {{movie.rating}}
-					<span>
-						By : {{movie.directors | separatedByCommas }}
+					<span>					
+						By : {{movie.directors | separatedByCommas}}
 					</span>
-					<span>
-						With : {{movie.actors | limitSize | separatedByCommas }}
+					<span>							
+						With : {{movie.actors | separatedByCommas }}
 					<span>
 					{{movie.plot_simple}}
 				</section>

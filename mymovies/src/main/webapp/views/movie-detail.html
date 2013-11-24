@@ -7,8 +7,12 @@
       <img ng-src="data/covers/{{movie.imdb_id}}.jpg" rel="noreferrer"/>
     </section>
     <section class="content">
-      <h1>{{movie.title}}</h1>
-      Rating : {{movie.rating}}
+    	<!--
+			 TODO - 1 : remplacer 'TITRE-DU-FILM' par un binding
+			 vers le titre du film (movie.title)
+			 -->
+      <h1>TITRE-DU-FILM</h1>
+      
       <ul class="tags">
           <li ng-repeat="genre in movie.genres.split(',')">
             <span class="label label-warning">{{genre}}</span>
@@ -22,19 +26,9 @@
       </p>
 
       <p id="directors" >
-        <!-- 
-			TODO - 2 : mettre en place le filtre qui permet de transformer un tableau de chaines
-			en une chaine de valeurs séparés par des virgules
-			(filtre 'separatedByCommas')
-		-->
 		Directed by : <span class="directors">{{movie.directors}}</span>     
       </p>
       <p id="actors">
-         <!-- 
-			TODO - 2 : mettre en place le filtre qui permet de transformer un tableau de chaines
-			en une chaine de valeurs séparés par des virgules
-			(filtre 'separatedByCommas')
-		-->
 		With : <span class="actors">{{movie.actors}}</span>
       </p>
 

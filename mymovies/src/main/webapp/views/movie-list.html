@@ -1,21 +1,26 @@
 <section class="movies-list">
 	<header class="header">
-			<span class="title">{{pageTitle}}</span>
-			
-			<!-- TODO - 2 : Ajouter un input (class='form-control') associé à la propriété 'actor'
-			 du scope du controleur -->
-
-
+			<!--
+			 TODO - 1 : remplacer 'TITRE-DE-LA-PAGE' par un binding
+			 vers le champ du scope correspondant ('pageTitle') -->
+			<span class="title">TITRE-DE-LA-PAGE</span>			
 	</header>
 	<section class="movies">
 		<!--Body content-->
 		<ul>
 			
-			<!-- TODO - 2 : ajouter le filtrage du film en fonction de la valeur de 'actor' (saisie précédement),
-				utiliser pour cela le filtre 'actorSearch'
-			 -->
+			
 			<li ng-repeat="movie in movies | orderBy:'title'" class="movie">
-				<a href="#/movies/{{movie.imdb_id}}">
+			
+				<!-- 
+				
+				TODO - 1 : modifier le lien vers "#" par un lien vers le vue
+				'detail' du film : pour cela on indique la 'route' angularjs 
+				RQ : la vue 'détail' du film dépend de l'idenfiant du film
+				il faudra utiliser un binding sur l'id du film (movie.imdb_id)
+				
+				-->
+				<a href="#">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
 					<span class="movie-shadow"/>
 				</a>
@@ -28,17 +33,13 @@
 					<span>					
 						By : {{movie.directors | separatedByCommas}}
 					</span>
-					<span>
-					<!-- 
-						TODO - 2 : mettre en place le filtre 'limitSize' permettant limiter la taille du tableau et
-						ré-utiliser le filtre 'separatedByCommas'. Attention l'ordre des filtres est important
-					-->											
+					<span>							
 						With : {{movie.actors | separatedByCommas }}
 					<span>
 					{{movie.plot_simple}}
 				</section>
 				<ul class="movie-genres">
-					<li ng-repeat="genre in movie.genres | limitTo:3">
+					<li ng-repeat="genre in movie.genres ">
 						<span class="label label-warning">{{genre}}</span>
 					</li>
 				</ul>
