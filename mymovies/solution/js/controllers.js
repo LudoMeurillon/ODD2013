@@ -76,38 +76,4 @@ function filterByActorName( movies, search ) {
     return filteredMovies;
   };
   
-  /**
-   * Filtre la liste de films en ne conservant que ceux qui correspondent à l'ensemble
-   * des tags données
-   * @param movies
-   * @param tags
-   * @returns
-   */
-  function filterByTags( movies, tags ) {
-      var filtered = [];
-      //Pas de filtre selectionné, on affiche tout
-      if(tags.length == 0){
-      	return movies;
-      }
-      angular.forEach(movies, function(movie) {
-      	//On copie les filtres selectionnés pour les eliminer 
-      	//à chaque correspondance pour le film testé
-      	var searchedGenres = [];
-      	angular.forEach(tags, function(tag){
-      		searchedGenres[tag]=false;
-      	});
-
-      	var currentGenres = movie.genres;
-      	if(currentGenres){
-	      	angular.forEach(tags, function(tag){
-	      		if(currentGenres.indexOf(tag) > -1){
-	      			delete searchedGenres[tag];
-	      		}
-	      	});
-	    }
-	    if(Object.keys(searchedGenres).length == 0){
-	    	filtered.push(item);
-		}
-      });
-      return filtered;
-    };
+  
