@@ -142,7 +142,7 @@ function filterByActorName( movies, search ) {
 	      	});
 	    }
 	    if(Object.keys(searchedGenres).length == 0){
-	    	filtered.push(item);
+	    	filtered.push(movie);
 		}
       });
       return filtered;
