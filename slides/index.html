@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Atelier</title>
+
+		<meta name="description" content="Atelier AngularJS du DevDay 2013">
+		<meta name="author" content="Alexis Chemin & Ludovic Meurillon">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/reveal.min.css">
+		<link rel="stylesheet" href="reveal.js-2.5.0/css/theme/orange.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js-2.5.0/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js-2.5.0/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+		
+				<section>
+					<h1>AngularJS</h1>
+					<h3>Atelier - Developer Day 2013</h3>
+					<small>Animé et crée par Alexis Chemin et Ludovic Meurillon</small>
+				</section>
+
+				<section>
+					<section>
+						<h1>Quelques explications</h1>
+					</section>
+					<section>
+						<h1>ng-app</h1>
+						<code>&lt;html ng-app="module"&gt;</code>
+					</section>
+					<section>
+						<h1>$scope</h1>
+						<code>$scope.model="value"</code><br/>
+						<code>$scope.validate = function(...)</code>
+					</section>
+					<section>
+						<h1>$injection</h1>
+						<code>module.config(['$routeProvider',...</code>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>A chaque étape</h1>
+						<ol>
+							<li>
+									<h3>Ajoutez les tests Karma associés à l'étape</h3>
+									<p><code>mymovies/karma.conf.js</code></p>
+							</li>
+							<li>
+								<h3>Faites-les passer au vert !!</h3>
+							</li>
+						</ol>
+					</section>
+					<section>
+						<h1>Les fichiers</h1>
+						<ul>
+							<li>
+								<div>
+									<code>mymovies/src/main/webapp/js/*.js</code>
+								</div>
+							</li>
+							<li>
+								<div><code>mymovies/src/main/webapp/views/*.html</code></div>
+							</li>
+							<li>
+								<div><code>mymovies/src/test/js/step-*.js</code></div>
+							</li>
+						</ul>
+
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Etape 1</h1>
+						<h3>Routes</h3>
+					</section>
+					<section>
+						<p>
+							Actuellement, la vue <code>movie-list.html</code> est affichée lorsqu'on affiche :
+						</p>
+							<code>#/movies</code>
+						<p>
+							Ajoutez une route et faites en sorte d'afficher le détail d'un film pour les urls :
+						</p>
+							<code>#/movies/&lt;id&gt;</code>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Etape 2</h1>
+						<h3>Controller</h3>
+						<h3>Filter</h3>
+					</section>
+					<section>
+						<h3>Controller</h3>
+						<p>
+						Les contrôleurs fournissent des fonctions aux vues et mettent à jour le modèle à travers le $scope
+						</p>
+						<p>
+						Modifiez le contrôleur <code>MovieListCtrl</code> pour faire passer les tests au vert
+						</p>
+					</section>
+					<section>
+						<h3>Filter</h3>
+						<p>
+							Les filtres peuvent être attachés à un module ou un contrôleur
+						</p>
+						<p>
+						Créez un filtre <code>searchByActor</code> sur le contrôleur <code>MovieListCtrl</code> et faites passer les tests au vert
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Etape 3</h1>
+						<h3>Directive</h3>
+					</section>
+					<section>
+						<h3>Directive</h3>
+						<p>
+							L'objectif de l'exercice est d'implémenter le comportement suivant dans les vues
+						</p>
+						<code>&lt;vote prefix=&quot;note&quot; value=&quot;2.5&quot; max=&quot;5&quot; stars=&quot;10&quot;/&gt;</code>
+						<h3>=</h3>
+						<div>
+							TODO image du rating avec etoiles
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Etape 4</h1>
+						<h4>Utilisez la fonction &lt;TODO&gt; pour permettre de filtrer les films par catégorie</h4>
+						<small>Indice : modifiez MovieListCtrl en lui ajoutant un filtre</small>
+					</section>
+					<section>
+						<h1>Controller</h1>
+					</section>
+					<section>
+						<h1>Filter</h1>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Etape 5</h1>
+						<h3>E2E</h3>
+					</section>
+					<section>
+						<h3>Protractor</h3>
+						<p>
+							Protractor est le moteur de test e2e édité par l'équipe Angular.
+						</p>
+						<p>
+							Lancez un serveur sellenium 
+						</p>
+						<code>mymovies/selenium/start</code>
+						<p>
+						Puis lancez protractor pour executer les tests 
+						</p>
+						<code>protractor protractor.conf.js</code>
+					</section>
+				</section>
+				<section>
+					<h1>Merci</h1>
+					<ul>
+						<li><a href="https://github.com/LudoMeurillon/ODD2013">Sources GitHub</a></li>
+						<li><a href="http://ludomeurillon.github.com/ODD2013/slides/index.html">Slides</a></li>
+					</ul>
+				</section>
+			</div>
+
+		</div>
+		<script src="reveal.js-2.5.0/lib/js/head.min.js"></script>
+		<script src="reveal.js-2.5.0/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme || 'orange', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal.js-2.5.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js-2.5.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js-2.5.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal.js-2.5.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+
+</html>
