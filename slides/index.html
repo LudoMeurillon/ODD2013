@@ -63,11 +63,21 @@
 
 				<section>
 					<section>
+						<h1>Instructions</h1>
+						<h3>
+							<p>Dans un terminal :</p>
+						</h3>
+						<p>
+							<code>cd mymovies/</code><br/>
+							<code>karma start karma.conf.js</code>
+						</p>
+					</section>
+					<section>
 						<h1>A chaque étape</h1>
 						<ol>
 							<li>
-									<h3>Ajoutez les tests Karma associés à l'étape</h3>
-									<p><code>mymovies/karma.conf.js</code></p>
+								<h3>Ajoutez les tests Karma associés à l'étape</h3>
+								<p><code>./mymovies/karma.conf.js</code></p>
 							</li>
 							<li>
 								<h3>Faites-les passer au vert !!</h3>
@@ -78,15 +88,18 @@
 						<h1>Les fichiers</h1>
 						<ul>
 							<li>
+								 Javascript  :
 								<div>
-									<code>mymovies/src/main/webapp/js/*.js</code>
+									<code>./mymovies/src/main/webapp/js/*.js</code>
 								</div>
 							</li>
 							<li>
-								<div><code>mymovies/src/main/webapp/views/*.html</code></div>
+								HTML :
+								<div><code>./mymovies/src/main/webapp/views/*.html</code></div>
 							</li>
 							<li>
-								<div><code>mymovies/src/test/js/step-*.js</code></div>
+								Tests unitaires :
+								<div><code>./mymovies/src/test/js/step-*.js</code></div>
 							</li>
 						</ul>
 
@@ -101,11 +114,11 @@
 						<p>
 							Actuellement, la vue <code>movie-list.html</code> est affichée lorsqu'on affiche :
 						</p>
-							<code>#/movies</code>
+							<code>...#/movies</code>
 						<p>
 							Ajoutez une route et faites en sorte d'afficher le détail d'un film pour les urls :
 						</p>
-							<code>#/movies/&lt;id&gt;</code>
+							<code>...#/movies/:movieId</code>
 					</section>
 				</section>
 				<section>

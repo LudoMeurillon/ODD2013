@@ -4,7 +4,7 @@ var MovieListPage = function() {
   this.search = element(by.model("actorsearch"));
 
   this.get = function() {
-    browser.get('http://ludomeurillon.github.com/ODD2013/mymovies/');
+    browser.get('http://localhost:8080/mymovies/');
   };
 
   this.searchFor = function(actor){

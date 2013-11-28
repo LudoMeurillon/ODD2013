@@ -2,8 +2,9 @@
 
 /* Directives */
 
-angular.module('mymoviesDirectives', [])
+var myMoviesDirectives = angular.module('mymoviesDirectives', [])
 
+myMoviesDirectives.voteTemplate = "<ul><span>{{label}}</span><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>";
 /*
 Directive permettant d'afficher une note avec des étoiles
 
@@ -12,9 +13,11 @@ Exemple : pour afficher une note de 5.2/10 avec 20 étoiles
 	<vote value='5.2' max='10' stars='20'/>
 */
 
-.directive('vote', function(){
+myMoviesDirectives.directive('vote', function(){
 	return {
+        //La directive n'est disponible que par element <vote> 
     	restrict: 'E',
+        //Binding des attributs avec le scope de la directive
     	scope:{
     		vote:"=value",
     		max:"=max",
@@ -22,7 +25,7 @@ Exemple : pour afficher une note de 5.2/10 avec 20 étoiles
     	},
     	link : function(scope, element, attrs){
     		//Genere un tableau de 1 à max [1,2,3 .... max]
-    		scope.range = function(max, $scope){
+    		scope.range = function(max){
     			var array = [];
     			for (var i = 1; i <= max; i++) {
     				array.push(i);
@@ -41,9 +44,9 @@ Exemple : pour afficher une note de 5.2/10 avec 20 étoiles
     			return "glyphicon glyphicon-star"; 
     		};
 
-    		scope.label = attrs["label"]
+    		scope.label = attrs["label"];
 
     	},
-    	template: "<ul><span>{{label}}</span><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>"
+    	template: "&lt;NOTE&gt;"
     };
 });

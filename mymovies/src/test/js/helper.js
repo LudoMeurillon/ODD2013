@@ -7,3 +7,10 @@ beforeEach(function() {
 		}
 	});
 });
+
+describe("Test Helper", function(){
+
+	it("should be loaded", function(){
+		expect(1).toEqualData(1);
+	});
+});

@@ -1,16 +1,40 @@
 'use strict';
 
-/* jasmine specs for controllers go here */
-describe('My Favorite Movies - Controllers - Step 2', function() {
 
+
+describe('My Favorite Movies - Etape 2 - Controllers', function() {
 
   beforeEach(module('mymoviesServices'));
   beforeEach(module('mymoviesControllers'));
 
+  describe('MovieListCtrl scope', function(){
+    var scope, ctrl;
+
+    // Simule le service de recuperation de film avec un comportement vide
+    var mockMymoviesServices = {
+        query: function() {
+        	return [];
+        }
+   	};
+
+    beforeEach(inject(function($controller) {     
+      scope =  {};
+      // instancie un controlleur 'MovieListCtrl' avec un scope vide
+      ctrl = $controller('MovieListCtrl', {$scope: scope, 'Movie' : mockMymoviesServices});
+    }));
+
+    
+    it('should be initialized with page title', function() {
+      	expect(scope.pageTitle).toBe("My Favorite Movies");
+    });
+
+  });
+
+
   describe('MovieListCtrl', function(){
     var scope, ctrl, $httpBackend;
 
-    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+    beforeEach(inject(function(_$httpBackend_, $controller) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('rest/movies').respond(
         [{
@@ -48,14 +72,11 @@ describe('My Favorite Movies - Controllers - Step 2', function() {
       $httpBackend.flush();
       expect(scope.movies.length).toBe(2);
     });
-
-
-
   });
 });
 
-describe('My Favorite Movies - Filters - Step 2', function() {
 
+describe('My Favorite Movies - Etape 2 - Filters', function() {
 
 	// mymoviesFilters définit des filtres globaux
 	beforeEach(module('mymoviesFilters'));
@@ -159,3 +180,5 @@ describe('My Favorite Movies - Filters - Step 2', function() {
 
 	});		
 });
+
+

@@ -2,11 +2,11 @@
 
 /* jasmine specs for directives go here */
 
-describe('My Favorite Movies - Step 3', function() {
+describe('My Favorite Movies - Step 3 - Directive', function() {
 
   beforeEach(module('mymoviesDirectives'));
 
-  describe('vote', function() {
+  describe('<vote/>', function() {
     it('should print label before stars', function() {
       inject(function($compile, $rootScope) {
         var element = $compile('<vote label="test prefix" value="2.5" max="5" stars="10"></vote>')($rootScope);
@@ -23,7 +23,7 @@ describe('My Favorite Movies - Step 3', function() {
       });
     });
 
-    it('should print fill full stars regarding to value/max ratio', function() {
+    it('should print filled stars regarding to value/max ratio', function() {
       inject(function($compile, $rootScope) {
         var element = $compile('<vote prefix="test" value="2.5" max="5" stars="10"></vote>')($rootScope);
         $rootScope.$digest();
@@ -31,7 +31,7 @@ describe('My Favorite Movies - Step 3', function() {
       });
     });
 
-    it('should print fill empty stars regarding to value/max ratio', function() {
+    it('should print empty stars regarding to value/max ratio', function() {
       inject(function($compile, $rootScope) {
         var element = $compile('<vote prefix="test" value="2.5" max="5" stars="10"></vote>')($rootScope);
         $rootScope.$digest();
