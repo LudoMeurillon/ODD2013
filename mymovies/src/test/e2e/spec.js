@@ -1,7 +1,7 @@
 
 var MovieListPage = function() {
   this.movies = element.all(by.css(".movie"));
-  this.search = element(by.model("actorsearch"));
+  this.search = element(by.model("actor"));
 
   this.get = function() {
     browser.get('http://localhost:8080/mymovies/');
