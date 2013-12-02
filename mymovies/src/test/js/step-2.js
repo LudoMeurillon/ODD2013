@@ -7,7 +7,7 @@ describe('My Favorite Movies - Etape 2 - Controllers', function() {
   beforeEach(module('mymoviesServices'));
   beforeEach(module('mymoviesControllers'));
 
-  describe('MovieListCtrl scope', function(){
+  describe('MovieListCtrl creation', function(){
     var scope, ctrl;
 
     // Simule le service de recuperation de film avec un comportement vide
@@ -31,7 +31,7 @@ describe('My Favorite Movies - Etape 2 - Controllers', function() {
   });
 
 
-  describe('MovieListCtrl', function(){
+  describe('MovieListCtrl movies querying', function(){
     var scope, ctrl, $httpBackend;
 
     beforeEach(inject(function(_$httpBackend_, $controller) {
@@ -64,7 +64,7 @@ describe('My Favorite Movies - Etape 2 - Controllers', function() {
 
 
     it('should be initialized with empty actor search terms', function() {
-      expect(scope.actor).toBe("");
+      expect(scope.actorName).toBe("");
     });
 
     it('should fetch movies from http resource', function() {
