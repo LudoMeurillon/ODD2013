@@ -65,12 +65,7 @@ movieListCtrl.filter('selectedGenres', function() {
 	a un nom qui correspond au critère de recherche (comparaison en miniscule)
 */
 movieListCtrl.filter('actorSearch', function() {
-	return filterMoviesByCategories;
-	/*
-    return function( movies, search ) {
-    	return items;
-    };
-    */
+	return filterByActorName;
 });
 
 
