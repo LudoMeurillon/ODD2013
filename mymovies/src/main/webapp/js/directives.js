@@ -5,6 +5,7 @@
 var myMoviesDirectives = angular.module('mymoviesDirectives', [])
 
 myMoviesDirectives.voteTemplate = "<ul><span>{{label}}</span><li ng-repeat=\"i in range(stars)\"><i ng-class=\"getStarClass(i)\"/></li></ul>";
+
 /*
 Directive permettant d'afficher une note avec des étoiles
 
@@ -47,6 +48,8 @@ myMoviesDirectives.directive('vote', function(){
     		scope.label = attrs["label"];
 
     	},
-    	template: "&lt;NOTE&gt;"
+    	templateUrl: "templates/bad_template.html"
     };
 });
+
+//angular.module('mymoviesDirectives', [])

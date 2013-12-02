@@ -7,12 +7,8 @@
       <img ng-src="data/covers/{{movie.imdb_id}}.jpg" rel="noreferrer"/>
     </section>
     <section class="content">
-    	<!--
-			 TODO - 1 : remplacer 'TITRE-DU-FILM' par un binding
-			 vers le titre du film (movie.title)
-			 -->
-      <h1>TITRE-DU-FILM</h1>
-      
+      <h1>{{movie.title}}</h1>
+      Rating : {{movie.rating}}
       <ul class="tags">
           <li ng-repeat="genre in movie.genres.split(',')">
             <span class="label label-warning">{{genre}}</span>

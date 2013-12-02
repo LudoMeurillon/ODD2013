@@ -6,42 +6,40 @@ var mymoviesControllers = angular.module('mymoviesControllers', []);
 
 var movieListCtrl = mymoviesControllers.controller('MovieListCtrl', [ '$scope', 'Movie',
 	function($scope, Movie) {
-		//Etape 2 - Controller - positionner le titre de la page correctement sur le scope
+		
+		// TODO - 1 : ajouter un attribut du scope 'pageTitle' valorisé à
+		// la valeur 'My Favorite Movies'
 	
 		//Films récupérés par le service Movie
-		$scope.movies = Movie.query(function(){
-			//Initialisation des tags a partir de la liste de films récupérés.
-			var cats = [];
-			angular.forEach($scope.movies , function(movie){
-				angular.forEach(movie.genres, function(genre){
-					cats[genre]=true;
-				});
-			});
-			$scope.categories = Object.keys(cats);
-		});
-		
-		//Filtres d'affichage des films (tags)
-		$scope.selectedTags = [];
-		
+		$scope.movies = Movie.query();
+
+
 		//Critère de recherche de films sur la base de nom d'acteurs
-		$scope.actor = "";
+		$scope.actorName = "";
+
+
+		$scope.categories = ["Adventure", "Crime", "Drama", "Family"];
+		//Filtres d'affichage des films (tags)
+		$scope.selectedCategories = [];
+
 		
 		//Renvoie vrai si le tag 'category' est selectionné
 		$scope.isSelected = function(category){
-			return ($.inArray(category, $scope.selectedTags) > -1);
+			return ($.inArray(category, $scope.selectedCategories) > -1);
 		};
 
 		//Selection/Deselectionne un filtre tag
 		$scope.toggleCategory = function(category){
 			if($scope.isSelected(category)){
-				var index = $scope.selectedTags.indexOf(category);
-				$scope.selectedTags.splice(index,1);
+				var index = $scope.selectedCategories.indexOf(category);
+				$scope.selectedCategories.splice(index,1);
 			}else{
-				$scope.selectedTags.push(category);
+				$scope.selectedCategories.push(category);
 			}
 		};
+
 		$scope.tagStyle = function(){
-			if($scope.selectedTags.length > 0){
+			if($scope.selectedCategories.length > 0){
 				return "tags-button selected"
 			}
 			return "tags-button"
@@ -57,7 +55,7 @@ movieListCtrl.filter('selectedGenres', function() {
 	return function( items, filters ) {
 		//Rien n'est encore fait ici
 		//Etape : filter
-		return mymoviesControllers.selectMoviesByCategories(items, filters);
+		return items;
     };
 });
 
@@ -66,33 +64,66 @@ movieListCtrl.filter('selectedGenres', function() {
 	a un nom qui correspond au critère de recherche (comparaison en miniscule)
 */
 movieListCtrl.filter('actorSearch', function() {
+	return filterMoviesByCategories;
+	/*
     return function( movies, search ) {
-    	return mymoviesControllers.selectMoviesByActorName(movies, search);
+    	return items;
     };
+    */
 });
 
-mymoviesControllers.selectMoviesByActorName = function(movies, searchTerm){
-	if(searchTerm == ""){
-		return movies;
-  	}
-	var filteredMovies = [];
-	var criteria = searchTerm.toLowerCase();
-	angular.forEach(movies, function(movie) {
-      	var actors = movie.actors;
-      	angular.forEach(actors, function(actor){
-      		if( actor.toLowerCase().search(criteria) > -1) { 
-      			// le nom de l'acteur correspond au critère
-      			// ==> ajoute le film à la liste de films filtrés
-      			if($.inArray(movie, filteredMovies) == -1){
-      				filteredMovies.push(movie);
-      			}
-      		}
-	   	});
-  	});
-  	return filteredMovies;
-}
 
-mymoviesControllers.selectMoviesByCategories = function(movies, categories){
+
+
+mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','Movie',
+    function($scope, $routeParams, Movie) {
+
+        $scope.pageTitle = 'My Movie Details';
+        $scope.id = $routeParams.movieId;
+        
+        // envoie une requete GET vers le serveur en passant
+        // l'identifiant de film a obtenir
+        Movie.get({
+            movieId : $routeParams.movieId
+        }, function(movie){                        
+            // fonction 'callback' lorsque le résultat (film)
+            // est disponible
+            $scope.movie = movie;
+        });                        
+
+} ]);
+
+
+
+/**
+ * Filtre la liste des films en ne conservant que les films dont au moins un nom d'acteur correspond
+ * au critère de recherche (nom)
+ */
+function filterByActorName( movies, search ) {
+    if(search == ""){
+            return movies;
+    }
+    console.log('filterByActorName', search, movies);
+    var filteredMovies = [];
+    var criteria = search.toLowerCase();
+    angular.forEach(movies, function(movie) {
+            var actors = movie.actors;
+            angular.forEach(actors, function(actor){
+                    if( actor.toLowerCase().search(criteria) > -1) { 
+                            // le nom de l'acteur correspond au critère
+                            // ==> ajoute le film à la liste de films filtrés
+                            if($.inArray(movie, filteredMovies) == -1){
+                                    filteredMovies.push(movie);
+                            }
+                    }
+            });
+    });
+    return filteredMovies;
+  };
+
+
+
+function filterMoviesByCategories(movies, categories){
 	var filtered = [];
 	//Pas de filtre selectionné, on affiche tout
 	if(categories.length == 0){
@@ -119,59 +150,9 @@ mymoviesControllers.selectMoviesByCategories = function(movies, categories){
 	}
 	});
 	return filtered;
-}
+};
 
 
 
-var movieDetailCtrl = mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','omdbApi', 'themoviedbApi',
-	function($scope, $routeParams, omdbApi, themoviedbApi) {
 
-			$scope.pageTitle = 'My Movie Details';
-			$scope.id = $routeParams.movieId;
-			$scope.photos = [];
-			omdbApi.get(
-					{
-						i : $routeParams.movieId
-					}, 
-					function(movie) {
-						$scope.setMovie(movie);
-					});
-
-			$scope.setMovie = function(movie){
-				$scope.movie = movie;
-				$scope.moviedb_config();
-			};
-
-			$scope.moviedb_config = function(){
-				themoviedbApi.config().then(
-					function(result){
-						$scope.config = result.data;
-						$scope.moviedb_search();
-					}
-				);
-			}
-			
-
-			$scope.moviedb_search = function(){
-				themoviedbApi.search($scope.movie.Title).then(
-					function(result){
-						$scope.moviedb_movieid = result.data.results[0].id;
-						$scope.moviedb_images()
-					}
-				);
-			}
-
-			$scope.moviedb_images = function(){
-				themoviedbApi.images($scope.moviedb_movieid).then(
-					function(result){
-						console.log(result.data);
-						$scope.posterSource = $scope.config.images.base_url+"original"+result.data.posters[0].file_path;
-						
-						angular.forEach(result.data.backdrops, function(poster){
-							$scope.photos.push($scope.config.images.base_url+"w185"+poster.file_path);
-						})
-					}
-				);
-			}
-		} ]);
 

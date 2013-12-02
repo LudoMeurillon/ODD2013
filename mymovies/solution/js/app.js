@@ -6,8 +6,7 @@ var mymoviesApp = angular.module('mymoviesApp', [
   'ngRoute',
   'mymoviesControllers',
   'mymoviesFilters',
-  'mymoviesServices',
-  'mymoviesDirectives'
+  'mymoviesServices'
 ]);
 
 mymoviesApp.config(['$routeProvider',
@@ -17,10 +16,10 @@ mymoviesApp.config(['$routeProvider',
         templateUrl: 'views/movie-list.html',
         controller: 'MovieListCtrl'
       }).
-      // TODO - 1 : ajouter une route '/movies/:movieId'
-      // la vue associée est 'views/movie-detail.html'
-      // le controlleur est 'MovieDetailCtrl'
-
+      when('/movies/:movieId', {
+        templateUrl: 'views/movie-detail.html',
+        controller: 'MovieDetailCtrl'
+      }).
       otherwise({
         redirectTo: '/movies'
       });
