@@ -52,11 +52,9 @@ var movieListCtrl = mymoviesControllers.controller('MovieListCtrl', [ '$scope', 
 	Filtre permettant de selectionner les films qui 
 	correspondent aux tags selectionnés.
 */
-movieListCtrl.filter('selectedGenres', function() {
+movieListCtrl.filter('filterByTags', function() {
 	return function( items, filters ) {
-		//Rien n'est encore fait ici
-		//Etape : filter
-		return items;
+		return filterMoviesByCategories(items, filters);
     };
 });
 
@@ -99,7 +97,6 @@ function filterByActorName( movies, search ) {
     if(search == ""){
             return movies;
     }
-    console.log('filterByActorName', search, movies);
     var filteredMovies = [];
     var criteria = search.toLowerCase();
     angular.forEach(movies, function(movie) {

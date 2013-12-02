@@ -16,6 +16,7 @@
                         		'label-warning' : isSelected(cat),  
                         		unselected : !isSelected(cat) 
                         	}" 
+                        	ng-click="toggleCategory(cat)"
                         >{{cat}}</span>
                     </li>
                 </ul>
@@ -27,7 +28,7 @@
 				TODO - Filtres - ActorSearch : utiliser un filtre actorSearch 
 				permettant de filtrer les films par nom d'acteur qui y joue
 			-->
-			<li ng-repeat="movie in movies | actorSearch:actorName | orderBy:'title'" class="movie">
+			<li ng-repeat="movie in movies | actorSearch:actorName | filterByTags:selectedCategories | orderBy:'title'" class="movie">
 
 				<a href="#/movies/{{movie.imdb_id}}">
 					<img ng-src="data/covers/{{movie.imdb_id}}.jpg"/>
