@@ -8,7 +8,7 @@ module.exports = function(config){
       'src/main/webapp/js/*.js',
       'src/test/js/helper.js',
       'src/test/js/step-1.js',
-      //'src/test/js/step-2.js',
+      'src/test/js/step-2.js',
       //'src/test/js/step-3.js',
       //'src/test/js/step-4.js'
     ],

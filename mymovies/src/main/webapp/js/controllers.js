@@ -9,6 +9,7 @@ var movieListCtrl = mymoviesControllers.controller('MovieListCtrl', [ '$scope', 
 		
 		// TODO - 1 : ajouter un attribut du scope 'pageTitle' valorisé à
 		// la valeur 'My Favorite Movies'
+		$scope.pageTitle = "My Favorite Movies"
 	
 		//Films récupérés par le service Movie
 		$scope.movies = Movie.query();
