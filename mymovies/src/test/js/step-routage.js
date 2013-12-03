@@ -1,6 +1,6 @@
 'use strict';
 
-describe('My Favorite Movies - Etape 1 - Routage', function() {
+describe('My Favorite Movies - Etape Routage', function() {
 	beforeEach(module('mymoviesApp'));
 
 	it('should redirect root requests to movie list', function() {

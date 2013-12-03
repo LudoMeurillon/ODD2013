@@ -7,10 +7,12 @@ module.exports = function(config){
       'src/main/webapp/lib/angular/angular-*.js',
       'src/main/webapp/js/*.js',
       'src/test/js/helper.js',
-      //'src/test/js/step-1.js',
-      //'src/test/js/step-2.js',
-      //'src/test/js/step-3.js',
-      //'src/test/js/step-4.js'
+
+      //'src/test/js/step-routage.js',
+      //'src/test/js/step-scope.js',
+      //'src/test/js/step-filter.js',
+      //'src/test/js/step-directive.js',
+      //'src/test/js/step-tags.js'
     ],
 
     exclude: ['src/main/webapp/lib/angular/angular-scenario.js'],
@@ -22,7 +24,7 @@ module.exports = function(config){
     browsers : ['Chrome'],
 
     plugins : [
-      //'karma-coverage',
+      'karma-coverage',
       'karma-junit-reporter',
       'karma-chrome-launcher',
       'karma-jasmine'

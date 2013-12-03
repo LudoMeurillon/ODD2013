@@ -1,7 +1,7 @@
 'use strict';
 
 /* jasmine specs for controllers go here */
-describe('My Favorite Movies - Etape 4 - Filter movies by tags', function() {
+describe('My Favorite Movies - Etape Filter movies by tags', function() {
 
   beforeEach(module('mymoviesServices'));
   beforeEach(module('mymoviesControllers'));
@@ -105,7 +105,8 @@ describe('My Favorite Movies - Etape 4 - Filter movies by tags', function() {
       });
     });
 
-    describe("filterByTags filter ", function(){
+
+    describe("filterByTags", function(){
 
       beforeEach(function(){
         $httpBackend.flush();

@@ -1,8 +1,9 @@
 <section class="movies-list">
 	<header class="header">
 			<!--
-			 TODO - 1 : remplacer 'TITRE-DE-LA-PAGE' par un binding
-			 vers le champ du scope correspondant ('pageTitle') -->
+			 TODO : Scope  
+			 
+			 remplacer 'TITRE-DE-LA-PAGE' par un binding vers le champ du scope correspondant ('pageTitle') -->
 			<span class="title">TITRE-DE-LA-PAGE</span>		
 			<input ng-model="actorName" placeholder="Looking for an actor?" class="form-control"></input>
 			<section ng-class="tagStyle()">
@@ -24,8 +25,9 @@
 	<section class="movies">
 		<ul>
 			<!-- 
-				TODO - Filtre - ActorSearch : utiliser un filtre actorSearch 
-				permettant de filtrer les films par nom d'acteur qui y joue
+				TODO : Filtre 
+
+				Utiliser un filtre actorSearch permettant de filtrer les films par nom d'acteur
 			-->
 			<li ng-repeat="movie in movies | orderBy:'title'" class="movie">
 

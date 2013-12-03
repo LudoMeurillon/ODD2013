@@ -7,18 +7,23 @@ var mymoviesControllers = angular.module('mymoviesControllers', []);
 var movieListCtrl = mymoviesControllers.controller('MovieListCtrl', [ '$scope', 'Movie',
 	function($scope, Movie) {
 		
-		// TODO - 1 : ajouter un attribut du scope 'pageTitle' valorisé à
-		// la valeur 'My Favorite Movies'
+		/* 
+			TODO : Scope 
+		    
+			Ajouter un attribut du scope 'pageTitle' 
+			ayant pour valeur 'My Favorite Movies'
+		*/
 	
+
 		//Films récupérés par le service Movie
 		$scope.movies = Movie.query();
-
 
 		//Critère de recherche de films sur la base de nom d'acteurs
 		$scope.actorName = "";
 
 
-		$scope.categories = ["Adventure", "Crime", "Drama", "Family"];
+		$scope.categories = ["Adventure", "Animation", "Comedy", "Crime", "Drama", "Family", "History","Thriller", "Western"];
+
 		//Filtres d'affichage des films (tags)
 		$scope.selectedCategories = [];
 
@@ -51,11 +56,15 @@ var movieListCtrl = mymoviesControllers.controller('MovieListCtrl', [ '$scope', 
 	Filtre permettant de selectionner les films qui 
 	correspondent aux tags selectionnés.
 */
-movieListCtrl.filter('selectedGenres', function() {
-	return function( items, filters ) {
-		//Rien n'est encore fait ici
-		//Etape : filter
-		return items;
+movieListCtrl.filter('filterByTags', function() {
+	/*
+		TODO : Tags
+
+		Remplace la fonction suivante par l'une des fonctions au bas de la page pour 
+		filter les films par liste de tags
+	*/
+	return function( movies, categories ) {
+		return movies;
     };
 });
 
@@ -64,12 +73,15 @@ movieListCtrl.filter('selectedGenres', function() {
 	a un nom qui correspond au critère de recherche (comparaison en miniscule)
 */
 movieListCtrl.filter('actorSearch', function() {
-	return filterMoviesByCategories;
 	/*
+		TODO : Filter
+
+		Remplace la fonction suivante par l'une des fonctions au bas de la page pour 
+		filter les films par nom d'acteur
+	*/
     return function( movies, search ) {
     	return items;
     };
-    */
 });
 
 
@@ -77,28 +89,30 @@ movieListCtrl.filter('actorSearch', function() {
 
 mymoviesControllers.controller('MovieDetailCtrl', [ '$scope', '$routeParams','Movie',
     function($scope, $routeParams, Movie) {
-
         $scope.pageTitle = 'My Movie Details';
         $scope.id = $routeParams.movieId;
         
         // envoie une requete GET vers le serveur en passant
         // l'identifiant de film a obtenir
-        Movie.get({
-            movieId : $routeParams.movieId
-        }, function(movie){                        
-            // fonction 'callback' lorsque le résultat (film)
-            // est disponible
-            $scope.movie = movie;
-        });                        
+        Movie.get(
+        	{
+            	movieId : $routeParams.movieId
+        	}, 
+        	function(movie){                        
+            	// fonction 'callback' lorsque le résultat (film)
+            	// est disponible
+            	$scope.movie = movie;
+        	}
+        );                        
+	}
+]);
 
-} ]);
 
 
-
-/**
- * Filtre la liste des films en ne conservant que les films dont au moins un nom d'acteur correspond
- * au critère de recherche (nom)
- */
+/*
+	Filtre la liste des films en ne conservant que les films dont au moins un nom d'acteur correspond
+	au critère de recherche (nom)
+*/
 function filterByActorName( movies, search ) {
     if(search == ""){
             return movies;
@@ -107,7 +121,7 @@ function filterByActorName( movies, search ) {
     var filteredMovies = [];
     var criteria = search.toLowerCase();
     angular.forEach(movies, function(movie) {
-            var actors = movie.actors;
+        	var actors = movie.actors;
             angular.forEach(actors, function(actor){
                     if( actor.toLowerCase().search(criteria) > -1) { 
                             // le nom de l'acteur correspond au critère
@@ -122,8 +136,11 @@ function filterByActorName( movies, search ) {
   };
 
 
-
-function filterMoviesByCategories(movies, categories){
+/*
+	Filtre la liste des films en ne conservant que les films 
+ 	qui correspondent à toutes les categories passées en parametre
+ */
+function filterMoviesByCategories( movies, categories ){
 	var filtered = [];
 	//Pas de filtre selectionné, on affiche tout
 	if(categories.length == 0){

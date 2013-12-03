@@ -16,12 +16,17 @@ mymoviesApp.config(['$routeProvider',
       when('/movies', {
         templateUrl: 'views/movie-list.html',
         controller: 'MovieListCtrl'
-      }).
-      // TODO - 1 : ajouter une route '/movies/:movieId'
-      // la vue associée est 'views/movie-detail.html'
-      // le controlleur est 'MovieDetailCtrl'
+      })
 
-      otherwise({
+      /*
+        TODO : Route 
+          
+        ajouter une route '/movies/:movieId'
+        la vue associée est 'views/movie-detail.html'
+        le controlleur est 'MovieDetailCtrl'
+      */
+
+      .otherwise({
         redirectTo: '/movies'
       });
   }]);
