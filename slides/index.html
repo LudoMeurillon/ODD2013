@@ -36,7 +36,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 		
-				<section>
+				<section class="home">
 					<h1>AngularJS</h1>
 					<h3>Atelier - Developer Day 2013</h3>
 					<small>Animé et crée par Alexis Chemin et Ludovic Meurillon</small>
@@ -47,8 +47,45 @@
 						<h1>Quelques explications</h1>
 					</section>
 					<section>
+						<h1>AngularJS</h1>
+						<p>framework JavaScript visant à faciliter le développement d’IHM Web « Mono-page » coté navigateur. Il s’appuie sur le pattern MVC qui consiste à établir une séparation nette entre les données (Modèle, nommé « Scope » avec AngularJS), leurs représentations (Vues : le HTML) et la logique de l’IHM (Contrôle)</p>
+					</section>
+
+					<section>
+						<h1>Les Concepts</h1>
+						<ul>
+							<li><strong>Modularisation</strong> : découpage de l’application en modules, liés par le framework via un mécanisme d’injection de dépendences</li>
+							<li><strong>Data-binding</strong> : liaison de données bidirectionnelle qui permet de lier les modifications apportées aux propriétés d’un objet à des changements dans l’interface utilisateur, et vice-versa</li>
+							<li><strong>Routage</strong> : associer un nom de route à un couple (Vue , Contrôleur) et permettre la navigation via ces routes</li>
+							<li><strong>Filtrage</strong> : adapter les données avant l’affichage ou filtrer le contenu d’une collection</li>
+							<li><strong>Directive</strong> : permet d’étendre le code HTML en déclarant des éléments propre à notre application (composants réutilisables)</li>
+						</ul>
+					</section>
+					
+
+					<section>
 						<h1>ng-app</h1>
-						<code>&lt;html ng-app="module"&gt;</code>
+						<pre><code class="xml">&lt;html ng-app="module"&gt;</code></pre>
+					</section>
+					<section>
+						<h1>data-biding</h1>
+						<h3>The bad way</h3>
+						<img src="img/One_Way_Data_Binding.png"/>
+					</section>
+					<section>
+						<h1>data-biding</h1>
+						<h3>The good way</h3>
+						<img src="img/Two_Way_Data_Binding.png"/>
+					</section>
+					<section>
+						<h1>data-biding</h1>
+						<h3>The bad way</h3>
+						<img src="img/One_Way_Data_Binding.png"/>
+					</section>
+					<section>
+						<h1>data-biding</h1>
+						<h3>The good way</h3>
+						<img src="img/Two_Way_Data_Binding.png"/>
 					</section>
 					<section>
 						<h1>$scope</h1>
@@ -62,6 +99,12 @@
 				</section>
 
 				<section>
+
+					<section>
+						<h1>My Favorite Movies</h1>
+						<p>A partir d'un service REST exposant des données concernant des films, une IHM Web présente un mur d’affiches de films et les informations qui s’y rattachent.</p>
+						<img src="img/MyFavoriteMovies.png" >
+					</section>				
 					<section>
 						<h1>Instructions</h1>
 						<h3>
@@ -113,13 +156,21 @@
 					</section>
 					<section>
 						<p>
-							Actuellement, la vue <code>movie-list.html</code> est affichée lorsqu'on affiche :
+							Actuellement, la vue <code>movie-list.html</code> est affichée lorsqu'on affiche
 						</p>
 							<code>...#/movies</code>
 						<p>
-							Ajoutez une route et faites en sorte d'afficher le détail d'un film pour les urls :
+							Ajoutez une route et faites en sorte d'afficher le détail d'un film pour les URL
 						</p>
 							<code>...#/movies/:movieId</code>
+					</section>
+					<section>
+						<p>Ce qu'on veut:</p>
+						<img src="img/MovieDetailRoute.png" >				
+					</section>
+					<section>
+						<p>Déclarer une route:</p>
+						<img src="img/DeclarerRoute.png" >				
 					</section>
 				</section>
 
