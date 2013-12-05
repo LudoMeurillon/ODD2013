@@ -24,7 +24,7 @@ describe('My Favorite Movies - Etape Routage', function() {
 	  	});
 	});
 
-	it('should map /movies/:movieid to movie-list.html and MovieListCtrl', function() {
+	it('should map /movies/:movieid to movie-detail.html and MovieDetailCtrl', function() {
 
 		inject(function($route) {
 	    	expect($route.routes["/movies/:movieId"].controller).toEqual('MovieDetailCtrl')
