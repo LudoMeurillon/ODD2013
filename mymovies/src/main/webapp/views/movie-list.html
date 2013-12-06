@@ -10,7 +10,15 @@
             	TAGS
                 <ul>
                     <li ng-repeat="cat in categories | orderBy:'toLowercase()'" class="tags">
-                        <span 
+                    	<!-- TODO : 
+                    	
+                    		utilise la directive 'ng-click' pour invoquer la fonction
+                    		'toggleCategory'
+                    		
+                    		(RQ : cette fonction prenre en paramètre la categorie courante)                    		
+                    		
+                    	 -->
+                        <span ng-click="javascript:void()"
                         	ng-class="{
                         		label:true, 
                         		tag:true, 
