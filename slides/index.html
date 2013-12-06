@@ -94,29 +94,7 @@
 						<h1>My Favorite Movies</h1>
 						<p>A partir d'un service REST exposant des données concernant des films, une IHM Web présente un mur d’affiches de films et les informations qui s’y rattachent.</p>
 						<img src="img/MyFavoriteMovies.png" >
-					</section>				
-					<section>
-						<h1>Instructions</h1>
-						<h3>
-							<p>Dans un terminal :</p>
-						</h3>
-						<p>
-							<code>cd mymovies/</code><br/>
-							<code>karma start karma.conf.js</code>
-						</p>
-					</section>
-					<section>
-						<h1>A chaque étape</h1>
-						<ol>
-							<li>
-								<h3>Ajoutez les tests Karma associés à l'étape</h3>
-								<p><code>./mymovies/karma.conf.js</code></p>
-							</li>
-							<li>
-								<h3>Faites-les passer au vert !!</h3>
-							</li>
-						</ol>
-					</section>
+					</section>	
 					<section>
 						<h1>Les fichiers</h1>
 						<ul>
@@ -140,7 +118,11 @@
 					<section>
 						<h1>Serveur local</h1>
 						<img alt="" src="img/DemarrageServer.png">
-						<p>Puis <pre><code>http://localhost:8080/mymovies/</code></pre>		Go !</p>				
+						<p>Puis dans le navigateur<pre><code>http://localhost:8080/mymovies/</code></pre>		Go !</p>				
+					</section>
+					<section>
+						<h1>Page principale</h1>
+						<img src="img/MainPage.png" >
 					</section>
 				</section>
 
@@ -148,6 +130,10 @@
 					<section>
 						<h1>Etape 1</h1>
 						<h3>Routes</h3>
+					</section>
+					<section>
+						<p>Ce qu'on veut :</p>
+						<img src="img/MovieDetailRoute.png" >				
 					</section>
 					<section>
 						<p>
@@ -158,10 +144,6 @@
 							Ajoutez une route et faites en sorte d'afficher le détail d'un film pour les URL
 						</p>
 							<code>...#/movies/:movieId</code>
-					</section>
-					<section>
-						<p>Ce qu'on veut:</p>
-						<img src="img/MovieDetailRoute.png" >				
 					</section>
 					<section>
 						<p>Déclarer une route:</p>
@@ -183,17 +165,19 @@
 						<p>
 						Les contrôleurs fournissent des fonctions aux vues et mettent à jour le modèle à travers le $scope
 						</p>
-						<p>
-						Modifiez le contrôleur <code>MovieListCtrl</code> pour faire passer les tests au vert
-						</p>
+						<img src="img/Scopes.png" >		
 					</section>
 					<section>
-						<p>Hierarchie de scopes</p>
-						<img src="img/Scopes.png" >				
+						<h1>A faire</h1>
+						<ul>
+						<li>Modifiez le scope contrôleur <code>MovieListCtrl</code> pour y ajouter le champ <code>pageTitle</code></li>
+						<li>puis modifier la vue <code>movie-list.html</code> pour y déclarer un "binding" sur <code>pageTitle</code></li>
+						</ul>
 					</section>
 					<section>
-						<p>Résultat attendu</p>
+						<h1>Résultat attendu</h1>
 						<img src="img/SuccesEtapeScope.png" >
+						<p>Bonus : modifier, dans le vue <code>movie-detail.html</code> le texte <i>TITRE-DU-FILM</i> par un lien le titre du film 
 					</section>
 				</section>
 
@@ -227,7 +211,7 @@
 						<p>
 							L'objectif de l'exercice est d'implémenter le comportement suivant dans les vues
 						</p>
-						<code>&lt;vote label=&quot;Spectateurs&quot; value=&quot;5&quot; max=&quot;5&quot; stars=&quot;10&quot;/&gt;</code>
+						<code>&lt;vote label=&quot;Spectateurs&quot; value=&quot;3&quot; max=&quot;5&quot; stars=&quot;5&quot;/&gt;</code>
 						<h3>=</h3>
 						<img src="img/5Stars.png" >
 					</section>
@@ -237,22 +221,23 @@
 					</section>
 				</section>
 
-				<section>
-					<section>
-						<h1>Etape 5</h1>
-						<h3>Recherche par tags</h3>
-					</section>
-					<section>
-						<h3>Objectif</h3>
-						<h4>Activez la fonction de filtre par tag en utilisant/modifiant la vue, les controller et les filtres</h4>
-						<small>Indice : inspirez-vous du filtre searchByActor</small>
-					</section>
-				</section>
+				
 
 				<section>
 					<section>
-						<h1>Etape 6</h1>
-						<h3>E2E</h3>
+						<h1>Etape 5</h1>
+						<h3>Tests unitaires et E2E</h3>
+					</section>
+			
+					<section>
+						<h1>Test unitaires</h1>
+						<h3>
+							<p>Dans un terminal :</p>
+						</h3>
+						<p>
+							<code>cd mymovies/</code><br/>
+							<code>karma start karma.conf.js</code>
+						</p>
 					</section>
 					<section>
 						<h3>Protractor</h3>
@@ -267,6 +252,18 @@
 							Puis lancez protractor pour executer les tests 
 						</p>
 						<code>protractor protractor.conf.js</code>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Etape "J'en veux encore !"</h1>
+						<h3>Recherche par tags</h3>
+					</section>
+					<section>
+						<h3>Objectif</h3>
+						<h4>Activez la fonction de filtre par tag en utilisant/modifiant la vue, les controller et les filtres</h4>
+						<small>Indice : inspirez-vous du filtre searchByActor</small>
 					</section>
 				</section>
 
