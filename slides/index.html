@@ -48,24 +48,31 @@
 					</section>
 					<section>
 						<h1>AngularJS</h1>
-						<p>framework JavaScript visant à faciliter le développement d’IHM Web « Mono-page » coté navigateur. Il s’appuie sur le pattern MVC qui consiste à établir une séparation nette entre les données (Modèle, nommé « Scope » avec AngularJS), leurs représentations (Vues : le HTML) et la logique de l’IHM (Contrôle)</p>
+						<div>Framework d’IHM Web « Mono-page »</div>
+						<div>
+							<p>
+								<ul class="first-letter"> 
+									<li><span>M</span>odèle -> scope</li>
+									<li><span>V</span>ue ->  HTML</li>
+									<li><span>C</span>ontrôleur -> Javascript</li>
+								</ul>
+							</p>
+						</div>
 					</section>
 
 					<section>
-						<h1>Les Concepts</h1>
-						<ul>
-							<li><strong>Modularisation</strong> : découpage de l’application en modules, liés par le framework via un mécanisme d’injection de dépendences</li>
-							<li><strong>Data-binding</strong> : liaison de données bidirectionnelle qui permet de lier les modifications apportées aux propriétés d’un objet à des changements dans l’interface utilisateur, et vice-versa</li>
-							<li><strong>Routage</strong> : associer un nom de route à un couple (Vue , Contrôleur) et permettre la navigation via ces routes</li>
-							<li><strong>Filtrage</strong> : adapter les données avant l’affichage ou filtrer le contenu d’une collection</li>
-							<li><strong>Directive</strong> : permet d’étendre le code HTML en déclarant des éléments propre à notre application (composants réutilisables)</li>
-						</ul>
+						<h1>Concepts</h1>
+						<div><strong>Modularisation</strong></div>
+						<div><strong>Data-binding</strong></div>
+						<div><strong>Routage</strong></div>
+						<div><strong>Filtrage</strong></div>
+						<div><strong>Directive</strong></div>
 					</section>
-					
 
 					<section>
-						<h1>ng-app</h1>
-						<pre><code class="xml">&lt;html ng-app="module"&gt;</code></pre>
+						<h1>ng-*</h1>
+						<p><code>&lt;html ng-app="module"&gt;</code></p>
+						<p><code>&lt;div ng-controller="awesomeController"&gt;</code></p>
 					</section>
 					<section>
 						<h1>data-biding</h1>
@@ -78,9 +85,9 @@
 						<img src="img/Two_Way_Data_Binding.png"/>
 					</section>
 					<section>
-						<h1>$scope</h1>
-						<code>$scope.model="value"</code><br/>
-						<code>$scope.validate = function(...)</code>
+						<h1>scope</h1>
+						<code>scope.attribut="valeur"</code><br/>
+						<code>scope.methode = function(...)</code>
 					</section>
 					<section>
 						<h1>$injection</h1>
@@ -92,33 +99,50 @@
 
 					<section>
 						<h1>My Favorite Movies</h1>
-						<p>A partir d'un service REST exposant des données concernant des films, une IHM Web présente un mur d’affiches de films et les informations qui s’y rattachent.</p>
+						<p>Un service REST</p>
+						<p>Un mur de films avec infos, notes, categories</p>
 						<img src="img/MyFavoriteMovies.png" >
 					</section>	
 					<section>
 						<h1>Les fichiers</h1>
-						<ul>
-							<li>
-								 Javascript  :
-								<div>
-									<code>./mymovies/src/main/webapp/js/*.js</code>
-								</div>
-							</li>
-							<li>
-								HTML :
-								<div><code>./mymovies/src/main/webapp/views/*.html</code></div>
-							</li>
-							<li>
-								Tests unitaires :
-								<div><code>./mymovies/src/test/js/step-*.js</code></div>
-							</li>
-						</ul>
-
+						<div class="fs">
+							<ul>
+								<li>mymovies</li>
+								<li>
+									<ul>
+										<li>src</li>
+										<li>
+											<ul>
+												<li>main</li>	
+												<li>
+													<ul>
+														<li>webapp</li>	
+														<li>
+															<ul>
+																<li>js/*.js (Javascript)</li>
+																<li>views/*.html (HTML)</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+												<li>test</li>
+												<li>
+													<ul>
+														<li>js/step-*.js (Tests)</li>
+													</ul>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
 					</section>
 					<section>
 						<h1>Serveur local</h1>
-						<img alt="" src="img/DemarrageServer.png">
-						<p>Puis dans le navigateur<pre><code>http://localhost:8080/mymovies/</code></pre>		Go !</p>				
+						<img src="img/DemarrageServer.png" style="width:80%">
+						<p>Puis dans le navigateur</p>
+						<p><code>http://localhost:8080/mymovies/</code></p>				
 					</section>
 					<section>
 						<h1>Page principale</h1>
@@ -220,9 +244,6 @@
 						<img src="img/Vote.png" >
 					</section>
 				</section>
-
-				
-
 				<section>
 					<section>
 						<h1>Etape 5</h1>
@@ -230,16 +251,18 @@
 					</section>
 			
 					<section>
-						<h1>Test unitaires</h1>
-						<h3>
+						<h1>Tests unitaires</h1>
+						<h3>Karma</h3>
+						<h4>
 							<p>Dans un terminal :</p>
-						</h3>
+						</h4>
 						<p>
 							<code>cd mymovies/</code><br/>
 							<code>karma start karma.conf.js</code>
 						</p>
 					</section>
 					<section>
+						<h1>Tests End-to-End</h1>
 						<h3>Protractor</h3>
 						<p>
 							Protractor est le moteur de test e2e édité par l'équipe Angular.
@@ -285,7 +308,7 @@
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+				controls: false,
 				progress: true,
 				history: true,
 				center: true,
