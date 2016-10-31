@@ -7,7 +7,7 @@ Api Rest OMDB : http://www.omdbapi.com/
 Tests
 =========
 inject : http://docs.angularjs.org/api/angular.mock.inject
-jasmine (expect, spyOn) : http://pivotal.github.io/jasmine/
+jasmine (expect, spyOn) : http://jasmine.github.io/
 
 Lancement :
 cd mmovies
